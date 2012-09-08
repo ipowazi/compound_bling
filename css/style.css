@@ -9,7 +9,7 @@ body a {
 
 .wrapper {
 	width: 960px;
-	height: 900px;
+/*	height: 900px;*/
 	margin: 0 auto;
 	color: #333745;
 	font-size: 1.1em;
@@ -17,21 +17,19 @@ body a {
 
 } 
 
-.title {
-	margin: 20 auto;
-	width: 380px;
-	font-size: 1.5em;
-	/*border: red solid;*/
-	padding-left: 290px;
-}
-
-.title h1 {
+a h1 {
 	color: #EA2E49;
+	margin: 0 auto;
+	padding: 20px 0px;
+	width: 330px;
+	font-size: 2.5em;
+/*	border: red 2px solid;*/
+/*	padding-left: 290px;*/
 }
 
 .main {
 	width: 800px;
-	height: 520px;
+	height: 650px;
 	/*border: black solid;*/
 }
 
@@ -49,9 +47,9 @@ body a {
 
 #about {
 	width: 400px;
-/*	height: 400px;*/
+	height: 500px;
 	float: right;
-	/*border: solid red;*/
+/*	border: solid red;*/
 }
 
 #about h3 {
@@ -62,17 +60,19 @@ body a {
 
 #about ul {
 	margin: 0;
+	padding: 0;
 	/*border: solid blue;*/
 }
 
 #about li {
-	margin-bottom: .5em;
+	margin-left: 15px;
+	padding: 5px 0;
 }
 
 #social {
-	width: 250px;
-	height: 75px;
-	/*border: solid purple;*/
+	width: 300px;
+	height: 60px;
+/*	border: solid purple;*/
 	margin: 0 auto;
 }
 
@@ -80,13 +80,14 @@ body a {
 	margin-left: 10px;
 	margin-right: 10px;
 	/*border: solid blue;*/
+	float: left;
 }
 
 #picture {
 	margin: 0 auto;
 	width: 320px;
 	height: 240px;
-	/*border: solid red;*/
+/*	border: solid red;*/
 }
 
 /************************
