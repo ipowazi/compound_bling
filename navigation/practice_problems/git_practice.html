@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>programming challenges</title>
+	<link rel="stylesheet" media="screen" type="text/css" href="../../css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<style type="text/css">
+		.title h1 {
+			width: 600px;
+			padding-left: 0; 
+		}
+
+		h2 {
+			background: url(../../images/open.png) no-repeat 0 11px;
+			padding: 10px 0 0 25px;
+			cursor: pointer;
+			font-size: 1.3em;
+		}
+		h2.close {
+			background-image: url(../../images/close.png);
+		}
+		.answer {
+			margin-left: 50px;	
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		  $('.answer').hide();
+		  $('.main h2').toggle(function() { //this targets every h2 in the main class
+		    $(this).next('.answer').fadeIn(); //this selects h2 that was clicked, next selects tag after selected tag
+		    $(this).addClass('close');
+		  },
+		  function() {
+		    $(this).next('.answer').fadeOut();
+		    $(this).removeClass('close');
+		  }
+		  ); //end toggle
+		}); //end ready
+	</script>
+</head>
+<body>
+	<div class = "wrapper">
+		<div class = "header">
+			<div class = "title">
+				<h1 class = "problems_h1">git practice problems</h1>
+				<p>Click on the question to display the answer</p>
+			</div>
+		</div> <!-- Close header div -->
+
+		<div class = "content">
+			<div class = "main">
+				<h2>How do you start Git and what is the process called?</h2>
+				<div class = "answer"><p>$ git init <br />
+				The process is called initializing a git repository</p></div>
+				
+				<h2>How do you determine the current state of the project?</h2>
+				<div class = "answer"><p>$ git status</p></div>	
+				
+				<h2>Move all your changes since your last commit to the staging area.</h2>
+				<div class = "answer"><p>$ git add .</p></div>			
+				
+				<h2>Store the saved changes in the repository and add a message "first commit"</h2>
+				<div class = "answer"><p>$ git commit -m "first commit"</p></div>
+				
+				<h2>Show a list of all the commits that have been made.</h2>
+				<div class = "answer"><p>$ git log</p></div>
+				
+				<h2>How do you put your local repository (repo) on the GitHub server?</h2>
+				<div class = "answer"><p>a. create a new repository in github <br />
+				b. get the SSH key (SSH stands for secure shell) <br />
+				c. $ git remote add origin [SSH key - something like git@github.com…] <br />
+				d. $ git push -u origin master</p></div>
+				
+				<h2>Take a git project from GitHub to your local machine to work on it.</h2>
+				<div class = "answer"><p>$ git pull origin master</p></div>
+				
+				<h2>What is the purpose of working off multiple branches.</h2>
+				<div class = "answer"><p>You can create a separate branch when you are developing a feature, etc. and can commit to this branch separately.  When the feature branch is working properly, you can merge it with the master branch.</p></div>
+				
+				<h2>Create a branch called working</h2>
+				<div class = "answer"><p>$ git branch working</p></div>
+				
+				<h2>List all of the branches.</h2>
+				<div class = "answer"><p>$ git branch</p></div>
+				
+				<h2>Switch to the working branch</h2>
+				<div class = "answer"><p>$ git checkout working</p></div>
+				
+				<h2>Merge the changes that were made in the working branch with the master branch.</h2>
+				<div class = "answer"><p>$ git checkout master <br />
+				$ git merge working</p></div>
+				
+				<h2>Delete the working branch</h2>
+				<div class = "answer"><p>$ git branch -d working</p></div>
+				
+				<h2>Put everything up on the remote repository.</h2>
+				<div class = "answer"><p>$ git push</p></div>
+			</div> <!-- End main div -->
+		</div> <!-- End content div -->
+	</div> <!-- Close wrapper div -->
+</body>
+</html>

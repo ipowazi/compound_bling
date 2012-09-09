@@ -138,4 +138,11 @@ NAVIGATION BAR
 /************************
 PROGRAMMING CHALLENGES
 ************************/
+.title .problems_h1 {
+	color: #7b56ad;
+}
 
+h2 {
+	font-weight: normal;
+
+}
