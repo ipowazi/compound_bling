@@ -8,7 +8,7 @@ body a {
 }		
 
 .wrapper {
-	width: 960px;
+	width: 750px;
 /*	height: 900px;*/
 	margin: 0 auto;
 	color: #333745;
@@ -28,7 +28,7 @@ a h1 {
 }
 
 .main {
-	width: 800px;
+	/*width: 800px;*/
 /*	height: 650px;*/
 	/*border: black solid;*/
 }
@@ -69,6 +69,15 @@ a h1 {
 #about li {
 	margin-left: 15px;
 	padding: 7px 0;
+}
+
+#about .child {
+	margin-left: 35px;
+}
+
+#about .child li {
+	margin-top: 0;
+	padding-top: 5px;
 }
 
 #social {
