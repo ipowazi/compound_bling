@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>programming challenges</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>	
+	<script type="text/javascript" src="../../js/practice_problems.js"></script>
+	
+	<link rel="stylesheet" media="screen" type="text/css" href="../../css/style.css">
+	
+
+
+</head>
+<body>
+	<div class = "wrapper">
+		<div class = "header">
+			<a href="http://compoundbling.com">Home</a>
+			<div class = "title">
+				<h1 class = "problems_h1">ruby practice problems</h1>
+				<p><strong>Click on the question to display the answer</strong></p>
+			</div>
+		</div> <!-- Close header div -->
+
+		<div class = "content">
+			<div class = "main">
+				<h2>Return the class of the object 2.</h2>
+				<div class = "answer"><p>2.class</p></div>
+
+				<h2>Return the inheritance path of the object 2.</h2>
+				<div class = "answer"><p>2.class.ancestors</p></div>
+
+				<h2>Return a sorted list of the Kernel methods.</h2>
+				<div class = "answer"><p>Kernel.methods.sort</p></div>
+
+				<h2>What is the Kernel data type?</h2>
+				<div class = "answer"><p>Kernel.class</p></div>
+
+				<h2>Demonstrate that puts is included in Kernel.</h2>
+				<div class = "answer"><p>Kernel.methods.include?(:puts)</p></div>
+
+
+				<h2>How many Kernel methods are there?</h2>
+				<div class = "answer"><p>Kernel.methods.count</p></div>
+
+				<h2>puts the string "Hi" with shorthand and dot notation.</h2>
+				<div class = "answer"><p>shorthand: puts "Hi"  Dot notation: Kernel.puts("Hi")</p></div>
+
+				<h2>Return the number of characters in the string "The Godfather"</h2>
+				<div class = "answer"><p>"The Godfather".length</p></div>
+
+				<h2>What is object oriented programming?  Why is it useful?</h2>
+				<div class = "answer"><p>OOP is a method to model programs with classes, objects, and inheritance.  It is easier for non-experts to read OOP code and it is easier to maintain and update the code to deal with real life situations.</p></div>
+
+				<h2>Start an infinite loop in irb and then exit it.</h2>
+				<div class = "answer"><p>Start an infinite loop like "while true do puts 10 end" and then exit it by pressing Control + C</p></div>
+
+
+				<h2>What do we call x and 10 in the following expression: x = 10</h2>
+				<div class = "answer"><p>x is a variable and 10 is an object (10 is an instance of the Fixnum class).  Variables are placeholders that can hold an object.</p></div>
+
+				<h2>What is the difference between if and unless?</h2>
+				<div class = "answer"><p>The code in an if block will execute if the condition is true.  The code in an unless block will execute if the condition is false.</p></div>
+
+				<h2>Write a method called teenager that takes age as a parameter and returns "You're not a teenager" if the age is too young or too old to be a teenager.</h2>
+				<div class = "answer"><p>def teenager(age) <br /> puts "You're not a teenager" unless age > 12 && age < 20 <br /> end</p></div>
+
+				<h2>Demonstrate that 15 is between 12 and 18 with a method.</h2>
+				<div class = "answer"><p>15.between?(12, 18)</p></div>
+
+				<h2>What does it mean when a method has a question mark?  Should you write methods that end with a question mark?</h2>
+				<div class = "answer"><p>	Methods that return a boolean end with a question mark.  If you write a method that returns a boolean, it should end with a question mark.</p></div>
+
+				<h2>When should you use do/end for code blocks and when should you use curly brackets { }?</h2>
+				<div class = "answer"><p>Use do/end for multi-line code blocks and curly brackets for single line code blocks.</p></div>
+
+				<h2>Starting at zero, puts 0 to 100 in increments of 5 without writing your own method.</h2>
+				<div class = "answer"><p>0.step(100, 5) {|number| puts number}</p></div>
+
+				<h2>Starting at 1, puts 1 to 10 without writing your own method.</h2>
+				<div class = "answer"><p>1.upto(10) {|number| puts number}</p></div>
+
+				<h2>Convert 4 to a floating point number.</h2>
+				<div class = "answer"><p>4.to_f</p></div>
+
+				<h2>What type of variable is used for a constant?</h2>
+				<div class = "answer"><p>Constants begin with a capital letter.</p></div>
+
+
+				<h2>Return the ordinal value of a.</h2>
+				<div class = "answer"><p>?a.ord  OR   'a'.ord</p></div>
+
+				<h2>Return the character value of 120.</h2>
+				<div class = "answer"><p>120.chr</p></div>
+
+				<h2>Write a multi-line string.</h2>
+				<div class = "answer"><p>%q {this  is <br /> a multiline <br /> string!}</p></div>
+
+				<h2>Set the variable x to be 5 and the variable y to be 7 and write 5 + 7 = 12 with string interpolation.</h2>
+				<div class = "answer"><p>"#{x} + #{y} = #{x + y}"</p></div>
+
+				<h2>In the string "foobar" replace "bar" with "moo".</h2>
+				<div class = "answer"><p>"foobar".sub('bar', 'moo')</p></div>
+
+
+				<h2>In the string "foobar foobar" replace both "bar" with "moo".</h2>
+				<div class = "answer"><p>"foobar foobar".gsub('bar', 'moo')</p></div>
+
+				<h2>Replace the first two characters of the string "This is a test" with "Hello".</h2>
+				<div class = "answer"><p>"This is a test".sub(/^../, "Hello")  <br /> the ^ anchor says to start at the beginning of the string</p></div>
+
+				<h2>Replace the last two characters of the string "This is a test" with "Hello".</h2>
+				<div class = "answer"><p>"This is a test".sub(/..$/, "Hello")  // the $ anchor says to start at the end of the string</p></div>
+
+				<h2>puts each character of the string "abcxyz"</h2>
+				<div class = "answer"><p>"abcxyz".scan(/./) {|letter| puts letter}  OR  "abcxyz".split("").each {|x| puts x}</p></div>
+
+				<h2>puts pairs of two of each character in the string "this is a test" and ignore whitespace characters.</h2>
+				<div class = "answer"><p>"this is a test".scan(/\w\w/) {|pair| puts pair}</p></div>
+
+
+				<h2>puts the numbers in the sentence "the car costs 1000 and the cat costs 50"</h2>
+				<div class = "answer"><p>"the car costs 1000 and the cat costs 50".scan(/\d+/) {|x| puts x}  <br /> the + sign makes the regex do a maximal munch</p></div>
+
+				<h2>puts the vowels in the string "This is a test"</h2>
+				<div class = "answer"><p>"This is a test".scan(/[aeiou]/) {|x| puts x}</p></div>
+
+				<h2>puts the letters between a and m in the string "This is a test"</h2>
+				<div class = "answer"><p>"This is a test".scan(/[a-m]/) {|x| puts x}</p></div>
+
+				<h2>puts "String has vowels" if the string has vowels (use "This is a test" and "tht wld b hrd 2 mk ppl ndrstd" as tests)</h2>
+				<div class = "answer"><p>puts "String has vowels" if "This is a test" =~ /[aeiou]/</p></div>
+
+				<h2>What is an array?</h2>
+				<div class = "answer"><p>An ordered collection of objects</p></div>
+
+
+				<h2>x = [1, 2, 3, 4]  Add 2 to the third element in the array.</h2>
+				<div class = "answer"><p>x[2] += 2</p></div>
+
+
+				<h2>What are the two ways to make an empty array?</h2>
+				<div class = "answer"><p>x = Array.new  AND  x = []</p></div>
+
+				<h2>What are the two ways to add objects to the array x = []?</h2>
+				<div class = "answer"><p>x &#60;&#60; "Word"  AND  x.push(7)</p></div>
+
+				<h2>x = ["Word", "Play", "Fun"]  Convert the array elements into a string with the string elements separated by a comma.</h2>
+				<div class = "answer"><p>x.join(", ")</p></div>
+
+				<h2>Convert "This is a test" to ["This", "is", "a", "test"] with 2 different techniques.</h2>
+				<div class = "answer"><p>"This is a test".split  OR  "This is a test".scan(/\w+/)  OR  %w"This is a test"</p></div>
+
+				<h2>Split "Short sentence. Another. No more." into an array on the periods.</h2>
+				<div class = "answer"><p>"Short sentence. Another. No more.".split(/\./)</p></div>
+
+				<h2>puts each element of the array [1, 2, 3, 4] and concatenate with "x"</h2>
+				<div class = "answer"><p>[1, 2, 3, 4].each {|num| puts "#{num}x"}</p></div>
+
+				<h2>Add 3 to each element in an array [1, 2, 3, 4] with two different techniques.</h2>
+				<div class = "answer"><p>[1, 2, 3, 4].map {|num| num + 3} OR [1, 2, 3, 4].collect {|num| num + 3}</p></div>
+
+				<h2>x = []  Determine if x is the empty array.</h2>
+				<div class = "answer"><p>x.empty?</p></div>
+
+				<h2>x = [1, 2, 3]  Determine if x includes the string "y"</h2>
+				<div class = "answer"><p>x.include?("y")  <br />remember, the question mark is used because the include? method returns a boolean</p></div>
+
+
+				<h2>Use two techniques to return the last element in an array.</h2>
+				<div class = "answer"><p>x.last  OR  x[-1]</p></div>
+
+				<h2>x = [1, 2, 3]  puts the first two elements of the array and separate them with a hyphen</h2>
+				<div class = "answer"><p>x.first(2).join('-')  OR  x[0..1].join('-')</p></div>
+
+				<h2>animals = {:cat=>"feline animal", :dog=>"canine animal"}  puts the number of key/value pairs in the hash.</h2>
+				<div class = "answer"><p>animals.length  OR  animals.size</p></div>
+
+				<h2>Why are there two different methods to determine the number of key value pairs in a hash?</h2>
+				<div class = "answer"><p>Ruby's philosophy is that there should be many ways to solve the same problem.  Other languages, like Python, think that there should only be one way (or only one best way) to solve a problem (the Pythonic way).  Rails seems to be much more opinionated than Ruby.</p></div>
+
+				<h2>Change the value of :cat to be "fluffy animal"</h2>
+				<div class = "answer"><p>animals[:cat] = "fluffy animal"</p></div>
+
+				<h2>x = {:a => 1, :b => 2}  Iterate through the hash and puts "key equals value" (i.e. :a equals 1, :b equals 2). </h2>
+				<div class = "answer"><p>x.each {|key, value| puts "#{key} equals #{value}"}</p></div>
+
+				<h2>x = {:a => 1, :b => 2}  Return an array of the keys in the hash</h2>
+				<div class = "answer"><p>x.keys</p></div>
+
+				<h2>x = {:a => 1, :b => 2}  Delete the key/value pair of the hash with key equal to :a</h2>
+				<div class = "answer"><p>x.delete(:a)</p></div>
+
+				<h2>x = {:a=>100, :b=>25}  Delete key/value pair of the hash if the value is greater than 50</h2>
+				<div class = "answer"><p>x.delete_if {|key, value| value > 50}  CAN ALSO WRITE LIKE THIS: x.delete_if {|_, value| value > 50}</p></div>
+
+				<h2>Set the age variable to 22 and puts "You are 22" if age is 22 and "You are not 22" otherwise using the ternary operator.</h2>
+				<div class = "answer"><p>age == 22 ? "You are 22" : "You are not 22"</p></div>
+
+
+				<h2>Print every capital letter from A to Z.</h2>
+				<div class = "answer"><p>("A".."Z").to_a.each {|letter| puts letter}  OR ("A".."Z").each {|letter| puts letter}</p></div>
+
+				<h2>Return true if R is included in the array of every capital letter from A to Z.</h2>
+				<div class = "answer"><p>("A".."Z").include?("R")</p></div>
+
+				<h2>a = [2, 4, 6, 8, 10, 12]  puts the second through fourth element in the array.</h2>
+				<div class = "answer"><p>a[1..3]  Cool way to create this array: a = 2.step(12, 2).to_a</p></div>
+
+				<h2>Convert the string "Bob" to a symbol</h2>
+				<div class = "answer"><p>"Bob".to_sym</p></div>
+
+				<h2>paragraph = "My name is Matt. What is your name? Are you excited to solve Ruby challenges? I am!"  Return the number of sentences in the paragraph.</h2>
+				<div class = "answer"><p>paragraph.scan(/[.?!]/).length  OR paragraph.split(/\.|\?|!/).length  //. and ? need to be escaped because they have other meaning in REGEX (! doesn't need to be escaped).  The pipes (|) mean that . ? and ! are treated separately.</p></div>
+
+				<h2>Iterate through all lowercase letters and delete all letters in the array that are vowels.</h2>
+				<div class = "answer"><p>letters = ("a".."z").to_a <br />  vowels = %w{a e i o u}  <br /> answer = letters.select {|letter| !vowels.include?(letter)}  <br />OR  letters.delete_if {|letter| vowels.include?(letter)}</p></div>
+
+				<h2>How are the collect and map Array methods referred to in the Ruby documentation?</h2>
+				<div class = "answer"><p>Array#collect <br /> Array#map</p></div>
+
+				<h2>How can you write a really big number to make it more readable (i.e. how can you write 1000000000 to make it more readable)?</h2>
+				<div class = "answer"><p>1_000_000_000</p></div>
+
+				<h2>In what order are chained methods evaluated?</h2>
+				<div class = "answer"><p>Chained methods are evaluated from left to right</p></div>
+
+				<h2>Show the two methods for using the + operator and explain syntactic sugar.</h2>
+				<div class = "answer"><p>5 + 3  OR  5.+(3)  The first technique is an example of syntactic sugar - a break from the normal formatting convention (i.e. a break from dot notation) to make the code more readable and writable.</p></div>
+
+				<h2>puts a random number between 0 and 5</h2>
+				<div class = "answer"><p>rand(6)  OR  rand(0..5)</p></div>
+
+				<h2>puts a random floating point number between 0 and 1</h2>
+				<div class = "answer"><p>rand  OR  rand()</p></div>
+
+				<h2>Show the two methods to concatenate the strings "First" and "Second"</h2>
+				<div class = "answer"><p>"First" + "Second"  OR  "First" << "Second"</p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+
+				<h2></h2>
+				<div class = "answer"><p></p></div>
+			</div> <!-- End main div -->
+		</div> <!-- End content div -->
+	</div> <!-- Close wrapper div -->
+</body>
+</html>
