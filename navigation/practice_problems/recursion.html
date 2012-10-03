@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>programming challenges</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/practice_tables.js"></script>
+	
+	<link rel="stylesheet" media="screen" type="text/css" href="../../css/style.css">
+	
+
+
+</head>
+<body>
+	<div class = "wrapper">
+		<div class = "header">
+			<a href="http://compoundbling.com">Home</a>
+			<div class = "title">
+				<h1 class = "problems_h1">recursion practice problems</h1>
+				<p><strong>Click on the answer cell on the right of the question to display the answer</strong></p>
+			</div>
+		</div> <!-- Close header div -->
+
+		<div class = "content">
+			<div class = "main">
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+					
+				
+					<tr>
+						<td>Define a recursive function that finds the factorial of a number.</td>
+						<td class="answer_hide">
+def factorial(n) <br />
+  &emsp;if n == 0 <br />
+    &emsp;&emsp;1 <br />
+  &emsp;else <br />
+    &emsp;&emsp;n * factorial(n-1) <br />
+  &emsp;end <br />
+end						</td>
+					</tr>
+			
+				
+					<tr>
+						<td>Define a recursive function that returns true if a string is a <a href="http://en.wikipedia.org/wiki/Palindrome">palindrome</a> and false otherwise.</td>
+						<td class="answer_hide">
+def palindrome(string) <br />
+  &emsp;if string.length == 1 || string.length == 0 <br />
+    &emsp;&emsp;true <br />
+  &emsp;else <br />
+    &emsp;&emsp;if  string[0] == string[-1]<br />
+      &emsp;&emsp;&emsp;palindrome(string[1..-2])<br />
+    &emsp;&emsp;else<br />
+      &emsp;&emsp;&emsp;false<br />
+    &emsp;&emsp;end<br />
+  &emsp;end<br />
+end
+						</td>
+					</tr>
+				
+					<tr>
+						<td>Define a recursive function that takes an argument n and prints "n bottles of beer on the wall", "(n-1) bottles of beer on the wall", ..., "no more bottles of beer on the wall".</td>
+						<td class="answer_hide">
+def bottles(n) <br />
+  &emsp;if n == 0 <br />
+    &emsp;&emsp;puts "no more bottles of beer on the wall"<br />
+  &emsp;else<br />
+    &emsp;&emsp;puts "#{n} bottles of beer on the wall"<br />
+    &emsp;&emsp;bottles(n-1)<br />
+  &emsp;end<br />
+end
+		
+						</td>
+					</tr>
+				
+					
+
+				</table>
+			</div> <!-- End main div -->
+		</div> <!-- End content div -->
+	</div> <!-- Close wrapper div -->
+</body>
+</html>
