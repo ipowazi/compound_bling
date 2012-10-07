@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>programming challenges</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/practice_tables.js"></script>
+	
+	<link rel="stylesheet" media="screen" type="text/css" href="../../css/style.css">
+	
+
+
+</head>
+<body>
+	<div class = "wrapper">
+		<div class = "header">
+			<a href="http://compoundbling.com">Home</a>
+			<div class = "title">
+				<h1 class = "problems_h1">ruby intermediate practice problems</h1>
+				<p><strong>Click on the answer cell on the right of the question to display the answer</strong></p>
+			</div>
+		</div> <!-- Close header div -->
+
+		<div class = "content">
+			<div class = "main">
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+					
+				
+					<tr>
+						<td>a = [1, 2, 3] and b = ["a", "b", "c"].  Print out 1a, 1a, 1c, 2a..., 3c.</td>
+						<td class="answer_hide">
+a.each do |number| <br />
+  &emsp;b.each do |letter|<br />
+    &emsp;&emsp;puts "#{number}: #{letter}"<br />   
+  &emsp;end<br />
+end<br /><br />
+
+<strong>Alternate Solution</strong>:<br />
+a.each do |number|<br />
+  &emsp;b.cycle(1) { |letter| puts "#{number} #{letter}" } <br />
+end
+
+
+						</td>
+					</tr>
+			
+					<tr>
+						<td>Make the following array: [["", "", ""], ["", "", ""], ["", "", ""]]</td>
+						<td class="answer_hide">
+Array.new(3) {Array.new(3) {""}} <br /><br />
+
+<strong>Alternate Solution</strong>:<br />
+Array.new(3) {Array.new(3, "")}
+
+						</td>
+					</tr>	
+
+					<tr>
+						<td>a = [1, 2, 3] and b = ["a", "b", "c"].  Use these arrays to make [[1, "a"], [2, "b"], [3, "c"]]</td>
+						<td class="answer_hide">a.zip(b)</td>
+					</tr>	
+
+					<tr>
+						<td>Convert c = [[1, "a"], [2, "b"], [3, "c"]] to [1, "a", 2, "b", 3, "c"]</td>
+						<td class="answer_hide">c.flatten</td>
+					</tr>
+				
+					<tr>
+						<td>a = [1, 2, 3] and b = ["a", "b", "c"].  Use these arrays to make the following hash: {1 => "a", 2 => "b", 3 => "c"}</td>
+						<td class="answer_hide">
+h = {} <br />
+a.each_with_index do |number, index|<br />
+  &emsp;h[number] = b[index]<br />
+end<br /><br />
+
+<strong>Alternate Solution</strong>:<br />
+Hash[a.zip(b)]
+						</td>
+					</tr>
+			
+					<tr>
+						<td>a = [["matt", "plumber"], ["phil", "baker"]].  Make the follwing array: ["name: matt occupation: plumber", "name: phil occupation: baker"]</td>
+						<td class="answer_hide">
+a.map {|name, occupation| p "name: #{name} occupation: #{occupation}"}
+						</td>
+					</tr>	
+				
+					<tr>
+						<td>Convert a = [[2, 3], [4, 2]] to [2, 2, 2, 4, 4].  The first element in the nested arrays is the number that should be displayed and the second element in the nested array is the number of times the number should be displayed.</td>
+						<td class="answer_hide">
+a.map { |number, times| [number].cycle(times).to_a }.flatten
+						</td>
+					</tr>
+			
+
+			
+					<tr>
+						<td>Show two ways to get the first through third elements of the array a = [1, 2, 3, 4]</td>
+						<td class="answer_hide">
+a[0..2] <br />
+a[0...3]
+						</td>
+					</tr>	
+				
+					<tr>
+						<td>What is the difference between include and require</td>
+						<td class="answer_hide">Use include to access methods from another module (include takes all the methods from another module .  Use require to run another file.</td>
+					</tr>
+			
+					<tr>
+						<td>Show two ways to calculate the square root of 64 with the Math module.</td>
+						<td class="answer_hide">
+Math.sqrt(64) <br/><br/>
+<strong>Alternate Solution</strong>:<br />
+include Math<br />
+sqrt 64 
+
+						</td>
+					</tr>	
+				
+					<tr>
+						<td>Delete all elements of the array a = [1, 2, 3, 4] that are less than or equal to 2.</td>
+						<td class="answer_hide">
+a.delete_if {|x| x &#60;= 2 }<br/><br/>
+
+<strong>Alternate Solution</strong>:<br />
+a.keep_if {|x| x > 2}
+
+						</td>
+					</tr>
+			
+					<tr>
+						<td>Return an array that only includes the elements greater than 2 of the array a = [1, 2, 3, 4], but do not mutate the original array.</td>
+						<td class="answer_hide">a.select {|x| x > 2}</td>
+					</tr>	
+				
+					<tr>
+						<td>Delete all elements of the array a = [1, 2, 3, 4] that are less than or equal to 2 without using delete_if or keep_if.</td>
+						<td class="answer_hide">a.select! { |x| x > 2 }</td>
+					</tr>
+			
+					<tr>
+						<td>a = [1, 2, 3, 4] print the elements of the array four times (i.e. 1, 2, 3, 4, 1, 2, …)</td>
+						<td class="answer_hide">a.cycle(4) { |x| puts x }</td>
+					</tr>	
+				
+					<tr>
+						<td>a = [1, 2, 3, 4]  Remove and return the last element of the array.</td>
+						<td class="answer_hide">a.pop</td>
+					</tr>
+			
+					<tr>
+						<td>Make a Super class with a info class method.  The info class method will puts "This is an awesome class method".  Make an add instance method that takes two parameters and returns the sum.  Then call both of the methods.</td>
+						<td class="answer_hide">
+class Super <br />
+    &emsp;def self.info<br />
+        &emsp;&emsp;puts "This is an awesome class method"<br />
+    &emsp;end<br /><br />
+    
+    &emsp;def add(num1, num2)<br />
+        &emsp;&emsp;num1 + num2<br />
+    &emsp;end<br />
+end<br /><br />
+
+p Super.info<br />
+n = Super.new<br />
+p n.add(2, 6)
+						</td>
+					</tr>	
+				
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+					
+				</table>
+			</div> <!-- End main div -->
+		</div> <!-- End content div -->
+	</div> <!-- Close wrapper div -->
+</body>
+</html>
