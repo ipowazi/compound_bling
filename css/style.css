@@ -1,5 +1,5 @@
 body {
-	background-color: #DAEDE2;
+	background-color: #f4faf7;
 }
 
 body a {
@@ -21,11 +21,13 @@ a h1 {
 	color: #EA2E49;
 	margin: 0 auto;
 	padding: 20px 0px;
-	width: 330px;
+	width: 700px;
 	font-size: 2.5em;
-/*	border: red 2px solid;*/
+	text-align: center;
+	/*border: red 2px solid;*/
 /*	padding-left: 290px;*/
 }
+
 
 .main {
 	/*width: 800px;*/
@@ -83,13 +85,13 @@ a h1 {
 #social {
 	width: 300px;
 	height: 60px;
-/*	border: solid purple;*/
+	/*border: solid purple;*/
 	margin: 0 auto;
 }
 
 #social a {
 	margin-left: 10px;
-	margin-right: 10px;
+	margin-right: 5px;
 	/*border: solid blue;*/
 	float: left;
 }
@@ -98,7 +100,29 @@ a h1 {
 	margin: 0 auto;
 	width: 320px;
 	height: 240px;
-/*	border: solid red;*/
+	/*border: solid red;*/
+}
+
+/************************
+INDEX.HTML
+************************/
+#practice_problems_table {
+	margin: 40px auto 0 auto;
+	border-collapse: collapse;
+	width: 400px;
+	font-size: 36px;
+
+}
+
+td {
+	/*width: 250px;*/
+	/*border: 2px solid #f8bbc4;*/
+	margin: 0;
+	padding: 10px 10px;
+}
+
+td img {
+	float: right;
 }
 
 /************************
@@ -145,74 +169,4 @@ NAVIGATION BAR
 	background-position: 97% -54px;
 }
 
-/************************
-GIT PROGRAMMING CHALLENGES
-************************/
-.title .problems_h1 {
-	color: #7b56ad;
-}
 
-h2 {
-	font-weight: normal;
-
-}
-
-.title h1 {
-	width: 600px;
-	padding-left: 0; 
-}
-
-h2 {
-	background: url(../../images/open.png) no-repeat 0 11px;
-	padding: 10px 0 0 25px;
-	cursor: pointer;
-	font-size: 1.3em;
-}
-h2.close {
-	background-image: url(../../images/close.png);
-}
-.answer {
-	margin-left: 50px;	
-}
-
-/************************
-JAVASCRIPT PROGRAMMING CHALLENGES
-************************/
-
-h1 {
-	opacity: 0.5;
-}
-
-table {
-	border-collapse: collapse;
-	width: 800px;
-}
-
-td {
-	border: 2px solid #545a71;
-	margin: 0;
-	padding: 3px 3px;
-}
-
-thead {
-	font-weight: bold;
-	text-align: center;
-}
-
-.column1 {
-	width: 350px;
-}
-
-.column2 {
-	width: 400px;
-}
-
-.answer_hide {
-	opacity: 0.0;
-	cursor: pointer;
-}
-
-.answer_show {
-	opacity: 1.0;
-	cursor: pointer;
-}

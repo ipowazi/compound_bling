@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="../../js/practice_tables.js"></script>
 	
 	<link rel="stylesheet" media="screen" type="text/css" href="../../css/style.css">
-	
+	<link rel="stylesheet" media="screen" type="text/css" href="../../css/table_challenges.css">
 
 
 </head>
@@ -83,7 +83,7 @@ Hash[a.zip(b)]
 					</tr>
 			
 					<tr>
-						<td>a = [["matt", "plumber"], ["phil", "baker"]].  Make the follwing array: ["name: matt occupation: plumber", "name: phil occupation: baker"]</td>
+						<td>a = [["matt", "plumber"], ["phil", "baker"]].  Make the following array: ["name: matt occupation: plumber", "name: phil occupation: baker"]</td>
 						<td class="answer_hide">
 a.map {|name, occupation| p "name: #{name} occupation: #{occupation}"}
 						</td>
@@ -139,7 +139,7 @@ a.keep_if {|x| x > 2}
 					</tr>	
 				
 					<tr>
-						<td>Delete all elements of the array a = [1, 2, 3, 4] that are less than or equal to 2 without using delete_if or keep_if.</td>
+						<td>Delete all elements of the array a = [1, 2, 3, 4] that are less than 2 without using delete_if or keep_if.</td>
 						<td class="answer_hide">a.select! { |x| x > 2 }</td>
 					</tr>
 			
@@ -174,40 +174,183 @@ p n.add(2, 6)
 				
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Add the elements of the following array a = [1, 2, 3, 4, 5]</td>
+						<td class="answer_hide">[1, 2, 3, 4, 5].inject(:+)</td>
 					</tr>	
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Make a proc that multiplies a number by two and show how it works</td>
+						<td class="answer_hide">
+p = Proc.new {|n| n * 2} <br />
+p.call(2)<br /><br />
+
+<strong>Alternate Syntax</strong>:<br />
+p = proc {|n| n * 2} <br />
+p.call(3)
+						</td>
 					</tr>	
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Make a proc that multiplies two numbers together and show how it works.</td>
+						<td class="answer_hide">
+p = Proc.new {|num1, num2| num1 * num2}<br />
+p.call(4, 5)
+						</td>
 					</tr>	
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>
+Make the following function puts "Hi"<br />
+def display_block<br />
+	&emsp;yield<br />
+end
+						</td>
+						<td class="answer_hide">display_block { puts "Hi" }</td>
 					</tr>	
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>
+Call the following method so the output is "Programming Powers"<br />
+def breakout(session_name) <br/>
+	&emsp;Proc.new { |presenter| puts "#{session_name} #{presenter}" } <br/>
+end<br/>
+						</td>
+						<td class="answer_hide">
+p = breakout("Programming")<br/>
+p.call("Powers")
+						</td>
 					</tr>	
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>arr = ["a", "b"].  Capitalize each element of arr with a proc.</td>
+						<td class="answer_hide">arr.map(&#38;:upcase)</td>
 					</tr>	
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>What do you call a method that returns a boolean?</td>
+						<td class="answer_hide">A predicate</td>
 					</tr>	
 					
+					<tr>
+						<td>Center the string "Bob" in a 40 character string with *** on either side of the string</td>
+						<td class="answer_hide">"Bob".center(40, "*")</td>
+					</tr>	
+					
+					<tr>
+						<td>Align the string "Bob" to the right of a 40 character string that has *** on the left of the string.</td>
+						<td class="answer_hide">"Bob".rjust(40, "*")<br/>If you wanted to left justify, you can use the ljust method.</td>
+					</tr>	
+					
+					<tr>
+						<td>a = [1, 2, 3, 4]  Add the string "nice" to the beginning of the string.</td>
+						<td class="answer_hide">a.unshift("nice")</td>
+					</tr>	
+					
+					<tr>
+						<td>Write a one-liner that returns the following output: {false=>[1, 3, 5, 7, 9, 11, 13, 15, 17, 19], true=>[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]}</td>
+						<td class="answer_hide">(1..20).group_by {|x| x.even?}</td>
+					</tr>	
+
+					<tr>
+						<td>Define a method that prints self.  Then use this method as a proc to print the numbers 1 to 100.</td>
+						<td class="answer_hide">
+def powersprint <br />
+	&emsp;puts self<br />
+end<br /><br />
+
+(1..100).each($:powersprint)
+						</td>
+					</tr>	
+
+					<tr>
+						<td>Return a new array that multiplies each even element of an array by 3.  a = [1, 2, 3, 4, 5, 6, 7] should simplify to [6, 12, 18]. </td>
+						<td class="answer_hide">[1, 2, 3, 4, 5, 6, 7].map {|x| x * 3 if x.even?}.compact</td>
+					</tr>	
+
+					<tr>
+						<td>Return an array that returns true for even numbers and false for odd numbers.  [1, 2, 3, 4] should simplify to [false, true, false, true].</td>
+						<td class="answer_hide">[1, 2, 3, 4].map(&#38;:even?)</td>
+					</tr>	
+
+					<tr>
+						<td>Create a 5 element array that is filled with 5 random numbers from 1 to 10.</td>
+						<td class="answer_hide">Array.new(5).map{rand(0..10)}</td>
+					</tr>	
+
+					<tr>
+						<td>a = [1, 2, 3, 4, 5, 6]  Delete the first three elements from the array.</td>
+						<td class="answer_hide">a.drop(3)</td>
+					</tr>	
+
+					<tr>
+						<td>a = ["a", "b", "c"]  Print out "0 -- 1 -- 2 --"</td>
+						<td class="answer_hide">a.each_index {|x| print "#{x} -- "}</td>
+					</tr>
+
+					<tr>
+						<td>a = [1, 2, 3, 4]  Attempt to retrieve an element at the 5th position and if no element is found, return "cats".</td>
+						<td class="answer_hide">a.fetch(5, "cats")</td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
 				</table>
 			</div> <!-- End main div -->
 		</div> <!-- End content div -->
