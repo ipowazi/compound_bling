@@ -119,45 +119,66 @@ $ cd ~
 						</td>
 					</tr>	
 				
+			
+					<tr>
+						<td>Create a file called program_logger.rb in the present working directory.</td>
+						<td class="answer_hide">$ touch program_logger.rb</td>
+					</tr>	
+				
+					<tr>
+						<td>Open the program_logger.rb file in textmate.</td>
+						<td class="answer_hide">$ mate program_logger.rb (to open an entire directory, use $ mate .)</td>
+					</tr>
+			
 					<tr>
 						<td>Create a file called important_information.txt on your desktop and add the text "joe is funny" to the file.</td>
 						<td class="answer_hide">echo joe is funny > important_information.txt</td>
 					</tr>
-			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Read the contents of the file important information.txt</td>
+						<td class="answer_hide">$ cat important_information.txt</td>
 					</tr>	
 				
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Create a file called another_file.txt with nano.</td>
+						<td class="answer_hide">$ nano another_file.txt  Type in some body text.  Then press control + X, y, and enter to exit and save your changes.</td>
 					</tr>
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>List the files in the present working directory in the long form</td>
+						<td class="answer_hide">$ ls -l</td>
 					</tr>	
 				
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>List the hidden and unhidden files in the present working directory in the long form and make the memory figures in human readable format.</td>
+						<td class="answer_hide">$ ls -ahl</td>
 					</tr>
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Writing out $ ls -ahl is annoying.  Make it so you can type ll insead of ls -ahl.</td>
+						<td class="answer_hide">$ alias ll='ls -ahl'</td>
+					</tr>	
+
+					<tr>
+						<td>Rename another_file.txt to be called cool_file.txt</td>
+						<td class="answer_hide">$ mv another_file.txt cool_file.txt<br />
+							There is no rename, so you mv is used to rename files.</td>
 					</tr>	
 				
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Move the text files that you created to the MattIsPhat directory.  This will move all .txt files to the MattIsPhat directory.</td>
+						<td class="answer_hide">First check all the files that will be moved<br />
+							$ for i in *txt; do echo $i; done<br />
+							Then move all the files to the MattIsPhat directory<br />
+							$ mv -i *txt MattIsPhat/
+						</td>
 					</tr>
 			
-					<tr>
+<!-- 					<tr>
 						<td></td>
 						<td class="answer_hide"></td>
-					</tr>	
+					</tr>	 -->
+
 
 				</table>
 			</div> <!-- End main div -->

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>programming challenges</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/practice_tables.js"></script>
+	
+	<link rel="stylesheet" media="screen" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" media="screen" type="text/css" href="../../css/table_challenges.css">
+
+
+</head>
+<body>
+	<div class = "wrapper">
+		<div class = "header">
+			<a href="http://compoundbling.com">Home</a>
+			<div class = "title">
+				<h1 class = "problems_h1">OOP practice problems</h1>
+				<p><strong>Click on the answer cell on the right of the question to display the answer</strong></p>
+				<p>These questions are mainly from the book <a href="http://www.amazon.com/Beginning-Ruby-Novice-Professional-Experts/dp/1430223634">Beginning Ruby</a></p>
+			</div>
+		</div> <!-- Close header div -->
+
+		<div class = "content">
+			<div class = "main">
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+					
+				
+					<tr>
+						<td>What is an object?</td>
+						<td class="answer_hide">An object is an instance of a class.  Think of a class as a factory that makes objects.</td>
+					</tr>
+			
+					<tr>
+						<td>What does the initialize method do?</td>
+						<td class="answer_hide">The initialize method is called whenever a new object based on the class is created.</td>
+					</tr>
+			
+					<tr>
+						<td>What is the scope of local, instance, class, and global variables?</td>
+						<td class="answer_hide">Local variables can only be accessed in a given method.<br />Instance variables are also known as object variables (i.e. @method) and have scope within the current object.<br />Class variables (i.e. @@method) can be accessed within the class.<br />Global variables (i.e. $x) can be accessed anywhere, including in classes and objects.</td>
+					</tr>
+			
+					<tr>
+						<td>Define a Square class and a method in the Square class that counts how many Square objects have been created.</td>
+						<td class="answer_hide">
+class Square<br />
+	&emsp;def initialize<br />
+		&emsp;&emsp;if defined?(@@number_of_squares)<br />
+			&emsp;&emsp;&emsp;@@number_of_squares += 1<br />
+		&emsp;&emsp;else<br />		
+			&emsp;&emsp;&emsp;@@number_of_squares = 1<br />
+		&emsp;&emsp;end<br />
+	&emsp;end<br /><br />
+
+	&emsp;def self.count<br />
+		&emsp;&emsp;@@number_of_squares<br />
+	&emsp;end<br />
+end<br /><br />
+
+a = Square.new<br />
+b = Square.new<br />
+p Square.count<br />
+c = Square.new<br />
+p Square.count
+						</td>
+					</tr>
+			
+					<tr>
+						<td>Create a Hello class and make a class method that prints "Hello from the class method" and an instance method that says "Hello from the instance method."  Call both of these methods.</td>
+						<td class="answer_hide">
+class Hello <br />
+	&emsp;def self.hi<br />
+		&emsp;&emsp;puts "Hello from the class method"<br />
+	&emsp;end<br /><br />
+
+	&emsp;def hi<br />
+		&emsp;&emsp;puts "Hello from the instance method"<br />
+	&emsp;end<br />
+end<br /><br />
+
+Hello.hi  #calls class method<br />
+Hello.new.hi  #calls instance method
+						</td>
+					</tr>
+			
+					<tr>
+						<td>What are two ways to define the class method "test" for the Square class.</td>
+						<td class="answer_hide">
+self.test   OR<br />
+Square.test<br />
+If you do not classify a method as a class method, then Ruby treats it as an instance method.
+						</td>
+					</tr>
+			
+					<tr>
+						<td>Make an Animal class and a Human class and have the Human class inherit from the Animal class.  Add a method to the Animal class that returns true if an animal is alive and add a method to the Human class that puts "Humans are intelligent."  Set the variable "Bob" equal to an instance of the Human class and call both of these methods on the Human object.</td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td>ADD EXAMPLE FROM PAGE 126</td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td>Make a Person class that assigns a name to a person and a Doctor class that inherits from the Person class.  Modify the name method in the Doctor class so it prints out Dr. + name</td>
+						<td class="answer_hide">
+class Person <br />
+    &emsp;attr_reader :name<br /><br />
+
+    &emsp;def initialize(name)<br />
+        &emsp;&emsp;@name = name<br />
+    &emsp;end<br />
+end<br /><br />
+
+class Doctor &#60; Person<br />
+    &emsp;def name<br />
+        &emsp;&emsp;"Dr. " + super<br />
+    &emsp;end<br />
+end<br /><br />
+
+dr_phil = Doctor.new("Phil")<br />
+p dr_phil.name
+						</td>
+					</tr>
+			
+					<tr>
+						<td>Extend the string class, so the upcase method makes all the letters of a string lower case.</td>
+						<td class="answer_hide">
+class String<br />
+    &emsp;def upcase<br /> 
+        &emsp;&emsp;self.downcase<br />
+    &emsp;end<br />
+end<br />
+						</td>
+					</tr>
+			
+					<tr>
+						<td>Assume doctor_phil is a variable that is assigned to an object (i.e. an instance of a class).  Return all instance variables associated with doctor_phil.</td>
+						<td class="answer_hide">p doctor_phil.instance_variables</td>
+					</tr>
+					<tr>
+						<td>Is it OK to have the same method name in different classes?</td>
+						<td class="answer_hide">Yes, it is fine to have the same method name in different classes.</td>
+					</tr>
+			
+					<tr>
+						<td>It is OK to have an instance variable that is the same name as the class?  For example, can we have the instance method @board in the Board class?</td>
+						<td class="answer_hide">The name of an instance variable should not be the same as the class name because it would be confusing.</td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+										<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>			
+				</table>
+			</div> <!-- End main div -->
+		</div> <!-- End content div -->
+	</div> <!-- Close wrapper div -->
+</body>
+</html>

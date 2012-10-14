@@ -108,7 +108,7 @@ a[0...3]
 				
 					<tr>
 						<td>What is the difference between include and require</td>
-						<td class="answer_hide">Use include to access methods from another module (include takes all the methods from another module .  Use require to run another file.</td>
+						<td class="answer_hide">Use include to access methods from another module (include takes all the methods from another module).  Use require to run another file.</td>
 					</tr>
 			
 					<tr>
@@ -258,13 +258,15 @@ def powersprint <br />
 	&emsp;puts self<br />
 end<br /><br />
 
-(1..100).each($:powersprint)
+(1..100).each(&#38;:powersprint)
 						</td>
 					</tr>	
 
 					<tr>
 						<td>Return a new array that multiplies each even element of an array by 3.  a = [1, 2, 3, 4, 5, 6, 7] should simplify to [6, 12, 18]. </td>
-						<td class="answer_hide">[1, 2, 3, 4, 5, 6, 7].map {|x| x * 3 if x.even?}.compact</td>
+						<td class="answer_hide">[1, 2, 3, 4, 5, 6, 7].map {|x| x * 3 if x.even?}.compact <br/ >
+							OR <br />
+						a.select {|x| x.even? }.map {|element| element * 3 }</td>
 					</tr>	
 
 					<tr>
@@ -274,12 +276,12 @@ end<br /><br />
 
 					<tr>
 						<td>Create a 5 element array that is filled with 5 random numbers from 1 to 10.</td>
-						<td class="answer_hide">Array.new(5).map{rand(0..10)}</td>
+						<td class="answer_hide">Array.new(5).map{rand(0..10)}<br />OR<br />Array.new(5) {rand(1..10)} </td>
 					</tr>	
 
 					<tr>
 						<td>a = [1, 2, 3, 4, 5, 6]  Delete the first three elements from the array.</td>
-						<td class="answer_hide">a.drop(3)</td>
+						<td class="answer_hide">a.drop(3)<br />OR<br/>a.shift(3)<br />Note that shift mutates the original array and drop does not.</td>
 					</tr>	
 
 					<tr>
@@ -293,48 +295,52 @@ end<br /><br />
 					</tr>
 
 					<tr>
-						<td></td>
+						<td>Return nil if the variable x is not defined and the type of variable x is if it is defined.</td>
+						<td class="answer_hide">defined?(x)</td>
+					</tr>
+
+					<tr>
+						<td>Write a linear search algorithm (for an unsorted list).</td>
 						<td class="answer_hide"></td>
 					</tr>
 
 					<tr>
-						<td></td>
+						<td>Write a binary search algorithm (for a sorted list of numbers).</td>
 						<td class="answer_hide"></td>
 					</tr>
 
 					<tr>
-						<td></td>
+						<td>Add regex grouping question</td>
 						<td class="answer_hide"></td>
 					</tr>
 
 					<tr>
-						<td></td>
+						<td>Print the strings "1" through "100" with a proc (i.e. start with the range (1..100) and not ("1".."100").</td>
+						<td class="answer_hide">(1..100).map(&#38;:to_s)</td>
+					</tr>
+
+					<tr>
+						<td>Define a method that takes a block with your name as an argument and prints your name n times (where n is specified as an argument).</td>
 						<td class="answer_hide"></td>
 					</tr>
 
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Create an array of 100 random numbers between 0 and 1.</td>
+						<td class="answer_hide">(1..100).map{rand}</td>
 					</tr>
 
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Create a 10 X 10 array and randomly fill each cell with "D" or "A".</td>
+						<td class="answer_hide">Array.new(10) {Array.new(10) {rand > 0.5 ? "D" : "A"}}</td>
 					</tr>
 
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Suppose you are working on a project with multiple files for each class - how do you run the tests (written in Ruby) of a given file and not the tests from the other files?</td>
+						<td class="answer_hide">
+if __FILE__ == $0<br />
+	&emsp;add tests here<br />
+end
+						</td>
 					</tr>
 
 					<tr>
