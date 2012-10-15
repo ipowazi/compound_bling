@@ -300,13 +300,42 @@ end<br /><br />
 					</tr>
 
 					<tr>
-						<td>Write a linear search algorithm (for an unsorted list).</td>
-						<td class="answer_hide"></td>
+						<td>Write a linear search algorithm for an unsorted list without using any array methods other than Array#length.</td>
+						<td class="answer_hide">
+def linear_search(value, array)<br />
+	&emsp;counter = 0<br />
+	&emsp;while counter < array.length<br />
+		&emsp;&emsp;if array[counter] == value<br />
+			&emsp;&emsp;&emsp;return counter<br />
+		&emsp;&emsp;else<br />
+			&emsp;&emsp;&emsp;counter += 1<br />
+		&emsp;&emsp;end<br />
+	&emsp;end<br />
+	&emsp;"Value not found"<br />
+end<br />
+						</td>
 					</tr>
 
 					<tr>
-						<td>Write a binary search algorithm (for a sorted list of numbers).</td>
-						<td class="answer_hide"></td>
+						<td>Write a binary search algorithm for a sorted list of numbers and return "Value not found" if the search value is not in the sorted array.</td>
+						<td class="answer_hide">
+def binary_search(value, array, start_index = 0, end_index = (array.length - 1))<br />
+	&emsp;while start_index &#60;= end_index<br />
+		&emsp;&emsp;middle_index = (start_index + end_index) / 2<br />
+		&emsp;&emsp;if array[middle_index] == value<br />
+			&emsp;&emsp;&emsp;return middle_index<br />
+		&emsp;&emsp;elsif value &#60; array[middle_index]<br />
+			&emsp;&emsp;&emsp;end_index = middle_index - 1<br />
+			&emsp;&emsp;&emsp;binary_search(value, array, start_index, end_index)<br />
+		&emsp;&emsp;else<br />
+			&emsp;&emsp;&emsp;start_index = middle_index + 1<br />
+			&emsp;&emsp;&emsp;binary_search(value, array, start_index, end_index)<br />
+		&emsp;&emsp;end<br />
+	&emsp;end<br />
+	&emsp;"Value not found"<br />
+end
+
+						</td>
 					</tr>
 
 					<tr>
@@ -344,6 +373,67 @@ end
 					</tr>
 
 					<tr>
+						<td>Change 123.12.1234 to 123-12-xxxx</td>
+						<td class="answer_hide">
+matching_part = "123.12.1234".match(/(\d{3}).(\d{2}).(\d{4})/).to_s <br />
+matching_part.sub(/(\d{3}).(\d{2}).(\d{4})/, '\1-\2-xxxx') 
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+Use pry to evaluate the values of the variables in the following method call.<br />
+def add(num1, num2)<br />
+	&emsp;num3 = num1 + num2<br />
+end
+						</td>
+						<td class="answer_hide">
+Update the file as follows: <br />
+require 'pry'<br />
+def add(num1, num2)<br />
+	&emsp;num3 = num1 + num2<br />
+	&emsp;binding.pry<br />
+end<br /><br />
+Run the file in Terminal with $ ruby $FILENAME<br>
+Type num1, num2, and num3 to see the values of the variables <br />
+Multiple pry bindings can be used and you can skip to the next with Control + D<br />
+Exit pry by typing exit.
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+Paste this information into a separate file called employees.csv.  Check to make sure the file exists. <br />
+matt,powers,123<br />
+bob,loblaw,654<br />
+homer,simpson,789<br />
+						</td>
+						<td class="answer_hide">File.exis?("employees.csv")</td>
+					</tr>
+
+					<tr>
+						<td>Calculate the factorial of 10 with a symbol to proc.</td>
+						<td class="answer_hide">(1..10).inject(:*)</td>
+					</tr>
+
+
+					<tr>
+						<td>Use a one-liner to find the longest word in the array: arr = %w{what is the longest word in this arrrrrray}</td>
+						<td class="answer_hide">arr.inject { |longest_word, word| word.length > longest_word.length ? word : longest_word}</td>
+					</tr>
+
+
+					<tr>
+						<td>Find the first number between 1 and 100 that is divisible by 10 and 7.</td>
+						<td class="answer_hide">(1..100).detect {|number| number % 10 == 0 &#38;&#38; number % 7 == 0}</td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
 						<td></td>
 						<td class="answer_hide"></td>
 					</tr>
@@ -357,7 +447,123 @@ end
 						<td></td>
 						<td class="answer_hide"></td>
 					</tr>
-				</table>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+
+
+					</table>
+
+			<h2>Files and Databases</h2>
+					<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+					
+				
+					<tr>
+						<td>Get information from the keyboard and store the information in the variable a</td>
+						<td class="answer_hide">a = gets.chomp</td>
+					</tr>
+
+
+					<tr>
+						<td>Create a text file with 10 lines of text and name it small_text_file.txt.  Use Ruby to iterate over the lines and print each line.</td>
+						<td class="answer_hide">File.open("small_text_file.txt").each {|line| puts line}<br />OR<br />File.new("small_text_file.txt", "r").each {|line| puts line}</td>
+					</tr>
+
+					<tr>
+						<td>What is the difference between the new and open File class methods?</td>
+						<td class="answer_hide">File#open closes the file after the code block is finished executing.  File#new only returns a file object referring to the file.</td>
+					</tr>
+
+					<tr>
+						<td>Read through the small_text_file.txt file line by line by hitting enter for every line.</td>
+						<td class="answer_hide">
+f = File.new("small_text_file.txt", "r") <br />
+puts f.gets<br />
+f.close
+						</td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>										
 			</div> <!-- End main div -->
 		</div> <!-- End content div -->
 	</div> <!-- Close wrapper div -->

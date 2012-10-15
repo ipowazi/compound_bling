@@ -28,8 +28,16 @@
 						<td class="column1">Question</td>
 						<td class="column2">Answer</td>
 					</thead>
-					
-				
+									
+					<tr>
+						<td>Identify the three parts of the following command: $ ls -l ~/Desktop</td>
+						<td class="answer_hide"> 
+ls is a utility.  Sometimes utilities can be run without flags or arguments.<br />
+-l is a flag that alters how the utility operates.  In this case, the -l flag will cause more information to be presented.<br />
+~/Desktop is an argument to the utility.  The number of arguments depends on the utility (some take none, one, or many)</td>
+
+					</tr>
+
 					<tr>
 						<td>Shortcut to put cursor at the beginning of the line</td>
 						<td class="answer_hide">Control + A</td>
@@ -97,7 +105,7 @@ $ whoami
 				
 					<tr>
 						<td>Open the manual for ls</td>
-						<td class="answer_hide">$ man ls</td>
+						<td class="answer_hide">$ man ls<br />Close the manual by pressing q</td>
 					</tr>
 			
 					<tr>
@@ -173,6 +181,37 @@ $ cd ~
 							$ mv -i *txt MattIsPhat/
 						</td>
 					</tr>
+
+					<tr>
+						<td>Command to display the contents of a file.</td>
+						<td class="answer_hide">$ less $FILE</td>
+					</tr>
+									
+					<tr>
+						<td>Copy a file to another location</td>
+						<td class="answer_hide">$ cp $FILE $LOCATION</td>
+					</tr>
+									
+					<tr>
+						<td>Delete a file permanently</td>
+						<td class="answer_hide">$ rm $FILE</td>
+					</tr>
+														
+					<tr>
+						<td>When you run $ ls with no flag, the output does not distinguish between files and folders.  What flag can be used, so the $ ls output distinguishes between files and folders?</td>
+						<td class="answer_hide">$ ls -F  (the folders will have slashes at the end)</td>
+					</tr>
+														
+					<tr>
+						<td>Run $ ls and output the hidden files as well (and have the output distinguish between files and folders)</td>
+						<td class="answer_hide">$ ls .</td>
+					</tr>
+
+														
+					<tr>
+						<td>What are two hidden folders in every folder and what do they do?</td>
+						<td class="answer_hide">. and .. are hidden in every folder. The . link takes you back to the same folder than you are currently in.  The .. link takes you back up to the parent folder.</td>
+					</tr>					
 			
 <!-- 					<tr>
 						<td></td>

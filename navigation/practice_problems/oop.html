@@ -18,7 +18,7 @@
 			<div class = "title">
 				<h1 class = "problems_h1">OOP practice problems</h1>
 				<p><strong>Click on the answer cell on the right of the question to display the answer</strong></p>
-				<p>These questions are mainly from the book <a href="http://www.amazon.com/Beginning-Ruby-Novice-Professional-Experts/dp/1430223634">Beginning Ruby</a></p>
+				<p>These questions are inspired from the book <a href="http://www.amazon.com/Beginning-Ruby-Novice-Professional-Experts/dp/1430223634">Beginning Ruby</a>.  Some examples are copied from Beginning Ruby.  You should buy this book if you don't own it already.</p>
 			</div>
 		</div> <!-- Close header div -->
 
@@ -156,13 +156,219 @@ end<br />
 					</tr>
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>
+Explain the results of the following code:
+class ParentClass<br />
+	&emsp;def method1<br />
+		&emsp;&emsp;puts &quot;Hello from method1 in the parent class&quot;<br />
+	&emsp;end<br />
+<br />
+	&emsp;def method2<br />
+		&emsp;&emsp;puts &quot;Hello from method2 in the parent class&quot;<br />
+	&emsp;end<br />
+end<br />
+<br />
+class ChildClass &lt; ParentClass<br />
+	&emsp;def method2<br />
+		&emsp;&emsp;puts &quot;Hello from method2 in the child class&quot;<br />
+	&emsp;end<br />
+end<br />
+<br />
+my_object = ChildClass.new<br />
+p my_object.method1<br />
+p my_object.method2
+						</td>
+						<td class="answer_hide">An instance of the child class is created.  When method1 is called, method1 from the ParentClass is used because the ChildClass inherits this method from the ParentClass.  When method2 is called the ChildClass method is used because it overrides the method2 from the ParentClass.</td>
 					</tr>
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>
+Add a Doctor Class to the following code, so the script prints "Dr. Bob" <br />							
+class Person<br />
+	&emsp;attr_reader :name<br />
+	&emsp;def initialize(name)<br />
+		&emsp;&emsp;@name = name<br />
+	&emsp;end<br />
+end<br />
+<br />
+<strong>Add Doctor Class here</strong>
+<br /><br />
+bob = Doctor.new(&quot;Bob&quot;)<br />
+p bob.name
+						</td>
+						<td class="answer_hide">
+class Doctor &lt; Person<br />
+	&emsp;def name<br />
+		&emsp;&emsp;&quot;Dr. &quot; + super<br />
+	&emsp;end<br />
+end<br />
+						</td>
+					</tr>
+			
+					<tr>
+						<td>What is polymorphism?</td>
+						<td class="answer_hide">Writing methods that can be used on multiple data types.  For example, the to_s method works on strings, arrays, hashes, and numbers (floating point numbers and integers).</td>
+					</tr>
+			
+					<tr>
+						<td>Create a class called Numbers and add the constant Pi = 3.14 to the numbers class.  Show how to access Pi outside of the Numbers class.</td>
+						<td class="answer_hide">
+class Numbers<br />
+	&emsp;Pi = 3.14<br />
+end<br />
+<br />
+puts Numbers::Pi
+						</td>
+					</tr>
+			
+					<tr>
+						<td>
+Show two ways to access the what_am_i method and one way the what_am_i method can not be accessed.<br /> 
+class Drawing<br />
+	&emsp;def Drawing.give_me_a_circle<br />
+		&emsp;&emsp;Circle.new<br />
+	&emsp;end<br />
+<br />
+	&emsp;class Line<br />
+	&emsp;end<br />
+<br />
+	&emsp;class Circle<br />
+		&emsp;&emsp;def what_am_i<br />
+			&emsp;&emsp;&emsp;&quot;This is a circle&quot;<br />
+		&emsp;&emsp;end<br />
+	&emsp;end<br />
+end
+						</td>
+						<td class="answer_hide">
+Two methods that work: <br />
+a = Drawing.give_me_a_circle<br />
+puts a.what_am_i<br />
+a = Drawing::Circle.new<br />
+puts a.what_am_i<br /><br />
+Method that does not work:
+a = Circle.new<br />
+puts a.what_am_i<br />
+						</td>
+					</tr>
+			
+					<tr>
+						<td>What is the scope of constants?</td>
+						<td class="answer_hide">Constants are defined within the scope of the current class and are made available to all child classes.</td>
+					</tr>
+
+					<tr>
+						<td>What is the class of irb?</td>
+						<td class="answer_hide">Object (you can see this by typing self.class into irb).  Everything in Ruby is an object, including irb.</td>
+					</tr>
+			
+					<tr>
+						<td>Define a Number module with a hello method that says "Hello from the Number m odule" and a Letter modeul with a hello method that says "Hello from the LETTER module."  Then call these two modules and note that there is no name conflict even though both module use a method with the same name.</td>
+						<td class="answer_hide">
+module Number<br />
+	&emsp;def self.hello<br />
+		&emsp;&emsp;puts &quot;Whats up from the Numbers module&quot;<br />
+	&emsp;end<br />
+end<br />
+<br />
+module Letter<br />
+	&emsp;def self.hello<br />
+		&emsp;&emsp;puts &quot;Whats up from the LETTERS module&quot;<br />
+	&emsp;end<br />
+end<br />
+<br />
+Number.hello<br />
+Letter.hello
+						</td>
+					</tr>
+			
+					<tr>
+						<td>What is the purpose of modules?</td>
+						<td class="answer_hide">To organize methods, classes, and constants into separate namespaces.  You cannot create an instance of a module and modules do not support inheritance, so they are different than classes.</td>
+					</tr>
+			
+					<tr>
+						<td>Define a Crane class in a Bird module and write a simple method in the class.  Define another Crane class in a seperate Machine module and write a simple method in the class.  Call the methods from the respective Crane classes and note that there is no name conflict, even though the classes have the same name.</td>
+						<td class="answer_hide">
+module Bird<br />
+	&emsp;class Crane<br />
+		&emsp;&emsp;def sound<br />
+			&emsp;&emsp;&emsp;puts &quot;Caw-Caw&quot;<br />
+		&emsp;&emsp;end<br />
+	&emsp;end<br />
+end<br />
+<br />
+<br />
+module Machine<br />
+	&emsp;class Crane<br />
+		&emsp;&emsp;def purpose<br />
+			&emsp;&emsp;&emsp;puts &quot;Destroy buildings&quot;<br />
+		&emsp;&emsp;end<br />
+	&emsp;end<br />
+end<br />
+<br />
+bird1 = Bird::Crane.new<br />
+bird1.sound<br />
+machine1 = Machine::Crane.new<br />
+machine1.purpose
+						</td>
+					</tr>
+			
+					<tr>
+						<td>Create a module with a method that prints the name of a class.  Make a class and use the method from the module.</td>
+						<td class="answer_hide">
+module UsefulFeatures<br />
+	&emsp;def class_name<br />
+		&emsp;&emsp;self.class.to_s<br />
+	&emsp;end<br />
+end<br />
+<br />
+class Person<br />
+	&emsp;include UsefulFeatures<br />
+end<br />
+<br />
+x = Person.new<br />
+puts x.class_name
+						</td>
+					</tr>
+			
+					<tr>
+						<td>
+What is the shortcut way to write the following code?<br />							
+class Person<br />
+	&emsp;attr_accessor :name, :gender, :age<br />
+<br />
+	&emsp;def initialize(name, gender, age)<br />
+		&emsp;&emsp;@name = name<br />
+		&emsp;&emsp;@gender = gender<br />
+		&emsp;&emsp;@age = age<br />
+	&emsp;end<br />
+end
+						</td>
+						<td class="answer_hide">
+Person = Struct.new(:name, :gender, :age)
+						</td>
+					</tr>
+			
+					<tr>
+						<td>
+Write the methods that the attr_accessor provides for free in the following example.<br />
+class Person<br />
+	&emsp;attr_accessor :name<br />
+end
+						</td>
+						<td class="answer_hide">
+As can been seen in the following code, attr_accessor just writes some code for you.<br />
+Notice that the attr_writer method is just a regular method because assignments in Ruby are just calls to regular methods.<br />
+class Person<br />
+	&emsp;def name<br />
+		&emsp;&emsp;@name<br />
+	&emsp;end<br />
+<br />
+	&emsp;def name=(name)<br />
+		&emsp;&emsp;@name = name<br />
+	&emsp;end<br />
+end
+						</td>
 					</tr>
 			
 					<tr>
@@ -185,10 +391,6 @@ end<br />
 						<td class="answer_hide"></td>
 					</tr>
 
-										<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
 			
 					<tr>
 						<td></td>
@@ -204,6 +406,7 @@ end<br />
 						<td></td>
 						<td class="answer_hide"></td>
 					</tr>
+
 			
 					<tr>
 						<td></td>
@@ -219,11 +422,120 @@ end<br />
 						<td></td>
 						<td class="answer_hide"></td>
 					</tr>
+
 			
 					<tr>
 						<td></td>
 						<td class="answer_hide"></td>
-					</tr>			
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+			
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+
 				</table>
 			</div> <!-- End main div -->
 		</div> <!-- End content div -->
