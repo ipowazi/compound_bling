@@ -99,13 +99,29 @@ If you do not classify a method as a class method, then Ruby treats it as an ins
 					</tr>
 			
 					<tr>
-						<td>Make an Animal class and a Human class and have the Human class inherit from the Animal class.  Add a method to the Animal class that returns true if an animal is alive and add a method to the Human class that puts "Humans are intelligent."  Set the variable "Bob" equal to an instance of the Human class and call both of these methods on the Human object.</td>
-						<td class="answer_hide"></td>
+						<td>Make an Animal class and a Human class and have the Human class inherit from the Animal class.  Add a method to the Animal class that returns "Hello from the Animal class" and add a method to the Human class that puts "Humans are intelligent."  Set the variable "Bob" equal to an instance of the Human class and call both of these methods on the Human object.</td>
+						<td class="answer_hide">
+class Animal<br />
+	&emsp;def notice<br />
+		&emsp;&emsp;"Hello from the Animal class"<br />
+	&emsp;end<br />
+end<br /><br />
+
+class Human &#60; Animal<br />
+	&emsp;def message<br />
+		&emsp;&emsp;"Humans are intelligent"<br />
+	&emsp;end<br />
+end<br /><br />
+
+bob = Human.new<br />
+p bob.notice<br />
+p bob.message
+						</td>
 					</tr>
 			
 					<tr>
-						<td>ADD EXAMPLE FROM PAGE 126</td>
-						<td class="answer_hide"></td>
+						<td>How do you determine when inheritance is appropriate?  Should Human inherit from Animals?  Should Checkers inherit from Board?</td>
+						<td class="answer_hide">Apply the "is a" test to see if inheritance is appropriate.  Humans are an animal, so Human should inherit from Animal.  Checkers are not a Board, so Checkers should not inherit from Board.</td>
 					</tr>
 			
 					<tr>
@@ -157,7 +173,7 @@ end<br />
 			
 					<tr>
 						<td>
-Explain the results of the following code:
+Explain the results of the following code:<br />
 class ParentClass<br />
 	&emsp;def method1<br />
 		&emsp;&emsp;puts &quot;Hello from method1 in the parent class&quot;<br />
@@ -178,7 +194,7 @@ my_object = ChildClass.new<br />
 p my_object.method1<br />
 p my_object.method2
 						</td>
-						<td class="answer_hide">An instance of the child class is created.  When method1 is called, method1 from the ParentClass is used because the ChildClass inherits this method from the ParentClass.  When method2 is called the ChildClass method is used because it overrides the method2 from the ParentClass.</td>
+						<td class="answer_hide">An instance of the child class is created.  When method1 is called, the method1 from the ParentClass is used because the ChildClass inherits this method from the ParentClass.  When method2 is called the ChildClass method is used because it overrides the method2 from the ParentClass.</td>
 					</tr>
 			
 					<tr>
@@ -245,7 +261,7 @@ a = Drawing.give_me_a_circle<br />
 puts a.what_am_i<br />
 a = Drawing::Circle.new<br />
 puts a.what_am_i<br /><br />
-Method that does not work:
+Method that does not work: <br />
 a = Circle.new<br />
 puts a.what_am_i<br />
 						</td>
@@ -262,7 +278,7 @@ puts a.what_am_i<br />
 					</tr>
 			
 					<tr>
-						<td>Define a Number module with a hello method that says "Hello from the Number m odule" and a Letter modeul with a hello method that says "Hello from the LETTER module."  Then call these two modules and note that there is no name conflict even though both module use a method with the same name.</td>
+						<td>Define a Number module with a hello method that says "Hello from the Number module" and a Letter module with a hello method that says "Hello from the LETTER module."  Then call these two modules and note that there is no name conflict even though both modules use a method with the same name.</td>
 						<td class="answer_hide">
 module Number<br />
 	&emsp;def self.hello<br />
@@ -372,39 +388,122 @@ end
 					</tr>
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>What is a better name for @board_array?</td>
+						<td class="answer_hide">@board</td>
 					</tr>
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Is employee_id a good variable name to use in the Employee class?</td>
+						<td class="answer_hide">No, you are already in the Employee class, so the variable name should be id.</td>
 					</tr>
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>
+Initialize an instance of the Dog class: <br />							
+class Animal<br />
+	&emsp;def initialize(name, type)<br />
+		&emsp;&emsp;@name = name<br />
+		&emsp;&emsp;@type = type<br />
+	&emsp;end<br />
+end<br />
+<br />
+class Dog &lt; Animal<br />
+end
+						</td>
+						<td class="answer_hide">
+dog1 = Dog.new(:fido, :lab)<br />
+The Dog class inherits initialize from the Animal class, so new instances must be initialized with the name and type parameters.
+						</td>
 					</tr>
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>
+Initialize a new instance of the Dog class: <br />
+class Animal<br />
+	&emsp;def initialize(name, type)<br />
+		&emsp;&emsp;d@name = name<br />
+		&emsp;&emsp;d@type = type<br />
+	&emsp;end<br />
+end<br />
+<br />
+class Dog &lt; Animal<br />
+	&emsp;def initialize(teeth)<br />
+		&emsp;&emsp;@teeth = teeth<br />
+	&emsp;end<br />
+end
+						</td>
+						<td class="answer_hide">
+dog1 = Dog.new(:sharp) <br />
+The initialize method in the Dog class has overwritten the intialize method in the Animal class, so an instance of the Dog class should only be initialized with one argument.
+						</td>
 					</tr>
 
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>
+Create an instance of the Dog class: <br />
+class Animal<br />
+	&emsp;def initialize(name, type)<br />
+		&emsp;&emsp;@name = name<br />
+		&emsp;&emsp;@type = type<br />
+	&emsp;end<br />
+end<br />
+<br />
+class Dog &lt; Animal<br />
+	&emsp;def initialize(name, type, teeth)<br />
+		&emsp;&emsp;super(name, type)<br />
+		&emsp;&emsp;@teeth = teeth<br />
+	&emsp;end<br />
+end
+						</td>
+						<td class="answer_hide">
+dog1 = Dog.new(:fido, :lab, :sharp) <br />
+super gets the name and type initialization from the Animal class and the teeth initialization is added in the Dog class.
+						</td>
 					</tr>
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>
+Refactor the following code, so super is not required: <br />
+class Cookie<br />
+	&emsp;def initialize(baking_time)<br />
+		&emsp;&emsp;@baking_time = baking_time<br />
+	&emsp;end<br />
+end<br />
+<br />
+class ChocolateChip &lt; Cookie<br />
+	&emsp;def initialize(baking_time, num_choc_chips)<br />
+		&emsp;&emsp;super(baking_time)<br />
+		&emsp;&emsp;@num_choc_chips = num_choc_chips<br />
+	&emsp;end<br />
+end<br />
+<br />
+choc_chip_cookie1 = ChocolateChip.new(15, 100)<br />
+p choc_chip_cookie1
+						</td>
+						<td class="answer_hide">
+class Cookie<br />
+end<br />
+<br />
+class ChocolateChip &lt; Cookie<br />
+	&emsp;def initialize(num_choc_chips)<br />
+		&emsp;&emsp;@num_choc_chips = num_choc_chips<br />
+	&emsp;end<br />
+<br />
+	&emsp;def baking_time<br />
+		&emsp;&emsp;15<br />
+	&emsp;end<br />
+end<br />
+<br />
+choc_chip_cookie1 = ChocolateChip.new(100)<br />
+p choc_chip_cookie1<br />
+p choc_chip_cookie1.baking_time
+						</td>
 					</tr>
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Should you refactor your code so that instance variables are replaced with instance methods?</td>
+						<td class="answer_hide">In general, instance methods are better than instance variables.  "Interfaces are better than states" (interfaces means method and states mean instance variables) because instance methods can be manipulated in arbitrary ways and instance methods cannot.</td>
 					</tr>
 
 			

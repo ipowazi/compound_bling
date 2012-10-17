@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>programming challenges</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/practice_tables.js"></script>
+	
+	<link rel="stylesheet" media="screen" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" media="screen" type="text/css" href="../../css/table_challenges.css">
+
+
+</head>
+<body>
+	<div class = "wrapper">
+		<div class = "header">
+			<a href="http://compoundbling.com">Home</a>
+			<div class = "title">
+				<h1 class = "problems_h1">eloquent ruby</h1>
+				<p><strong>Click on the answer cell on the right of the question to display the answer</strong></p>
+				<p>These questions and code examples are based on the book Eloquent Ruby.</p>
+			</div>
+		</div> <!-- Close header div -->
+
+		<div class = "content">
+			<div class = "main">
+
+			<h2>Chapter 3</h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td>What is the shortcut way to write the following hash? names = {:first => "matt", :second => "bill"}</td>
+						<td class="answer_hide">names = {first: "matt", second: "bill"}</td>
+					</tr>
+
+					<tr>
+						<td>Write a function that will sum an arbitrary amount of numbers.</td>
+						<td class="answer_hide">
+def sum(*nums) <br />
+	&emsp;nums.inject{|total, number| total + number}<br />
+end	
+						</td>
+					</tr>
+
+					<tr>
+						<td>Write a method that prints "person's favorite authors are ...add list of favorite authors..."</td>
+						<td class="answer_hide">
+def fav_authors(person, *authors) <br/>
+	&emsp;puts "#{person}'s favorite authors are:"<br/>
+	&emsp;authors.each {|author| print author + " "}<br/>
+end
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+Use the following method to sum this array: arr = [1, 2, 3] <br /> 
+def add(num1, num2, num3)<br />
+	&emsp;num1 + num2 + num3<br />
+end
+						</td>
+						<td class="answer_hide">add(*arr)</td>
+					</tr>
+
+					<tr>
+						<td>
+Write two other ways that this function can be called: <br />
+def print_name(name_hash)<br />
+	&emsp;puts &quot;#{name_hash[:first]} #{name_hash[:last]}&quot;<br />
+end<br />
+<br />
+p print_name({first: &quot;cool&quot;, last: &quot;dude&quot;})
+						</td>
+						<td class="answer_hide">
+p print_name(first: "cool", last: "dude") <br/>
+p print_name first: "cool", last: "dude"
+						</td>
+					</tr>
+
+					<tr>
+						<td>Convert h = {:sport=>"soccer", :place=>"europe", :why=>"dunno"} to [[:sport, "soccer"], [:place, "europe"], [:why, "dunno"]]</td>
+						<td class="answer_hide">h.map {|x| x}</td>
+					</tr>
+
+					<tr>
+						<td>Write a method to calculate the average word length in an array</td>
+						<td class="answer_hide">
+def average_word_length(array)<br />
+	&emsp;total = array.inject(0.0) {|result, word| word.size + result}<br />
+	&emsp;total / array.length<br />
+end
+						</td>
+					</tr>
+
+					<tr>
+						<td>Create an array with 10 nil elements and the string "cool" in the 11th index position.</td>
+						<td class="answer_hide">
+arr = []<br />
+arr[10] = "cool" <br /><br />
+
+This is something that is not desirable (especially if you put the string cool at position 1000 and created an array with 1,000 nils), so watch for this.
+						</td>
+					</tr>
+					</table>
+
+
+
+
+
+
+			<h2>Chapter 4</h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+					</table>
+			</div> <!-- End main div -->
+		</div> <!-- End content div -->
+	</div> <!-- Close wrapper div -->
+</body>
+</html>

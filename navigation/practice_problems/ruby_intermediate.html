@@ -517,7 +517,7 @@ homer,simpson,789<br />
 
 					</table>
 
-			<h2>Files and Databases</h2>
+			<h2>Files and Directories</h2>
 					<table>
 					<thead>
 						<td class="column1">Question</td>
@@ -549,6 +549,109 @@ puts f.gets<br />
 f.close
 						</td>
 					</tr>
+					
+					<tr>
+						<td>
+Create a text file called dummy_data.txt with the following information:<br />
+Fred Bloggs,Manager,Male,45<br />
+Laura Smith,Cook,Female,23<br />
+Debbit Watts,Professor,Female,38 <br /><br />
+
+Print every line of the file.
+						</td>
+						<td class="answer_hide">File.open("dummy_data.txt", "r").each {|line| puts line}</td>
+					</tr>
+
+					<tr>
+						<td>Open the dummy_data.txt file and print every data point that is seperated by a comma on a different row.</td>
+						<td class="answer_hide">File.open("dummy_data.txt").each(",") {|line| puts line}</td>
+					</tr>
+
+					<tr>
+						<td>Read the entire dummy_data.txt file into an array, split by lines.</td>
+						<td class="answer_hide">File.open("dummy_data.txt").readlines</td>
+					</tr>	
+					
+					<tr>
+						<td>What is the shortcut way to read the dummy_data.txt file into a string?</td>
+						<td class="answer_hide">data = File.read("dummy_data.txt")</td>
+					</tr>
+
+					<tr>
+						<td>What is the shortcut method to read the dummy_data.txt file into an array?</td>
+						<td class="answer_hide">array_of_lines = File.readlines("dummy_data.txt")</td>
+					</tr>
+
+					<tr>
+						<td>Create a new file called test.txt that will say "This is a test".</td>
+						<td class="answer_hide">
+File.open("test.txt", "w") do |f| <br />
+	&emsp;f.puts "This is a test"<br />
+end<br /><br />
+
+puts writes output to files in File objects
+						</td>
+					</tr>	
+
+					<tr>
+						<td>Add another line of data to the text.txt file.</td>
+						<td class="answer_hide">
+f = File.new("test.txt", "a")<br />
+f.puts "This is another line" <br />
+f.close
+
+						</td>
+					</tr>
+
+					<tr>
+						<td>Rename the test.txt file powers.txt.</td>
+						<td class="answer_hide">File.rename("text.txt", "powers.txt")</td>
+					</tr>
+
+					<tr>
+						<td>Delete the powers.txt file.</td>
+						<td class="answer_hide">File.delete("powers.txt")</td>
+					</tr>	
+
+					<tr>
+						<td>Create another file called new.txt and see the last time that the file was modified.</td>
+						<td class="answer_hide">File.mtime("new.txt")</td>
+					</tr>
+
+					<tr>
+						<td>Check if the file new.txt exists.</td>
+						<td class="answer_hide">File.exist?("new.txt")</td>
+					</tr>
+
+					<tr>
+						<td>Return the file size of the new.txt file.</td>
+						<td class="answer_hide">File.size("new.txt")</td>
+					</tr>	
+
+					<tr>
+						<td>How can you deal with directories in Ruby?</td>
+						<td class="answer_hide">The Dir class.</td>
+					</tr>
+
+					<tr>
+						<td>Change to the parent directory of the Ruby program.</td>
+						<td class="answer_hide">Dir.chdir("../")</td>
+					</tr>
+
+					<tr>
+						<td>Print the present working directory.</td>
+						<td class="answer_hide">Dir.pwd</td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
 
 					<tr>
 						<td></td>
@@ -563,7 +666,265 @@ f.close
 					<tr>
 						<td></td>
 						<td class="answer_hide"></td>
-					</tr>										
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+				</table>
+
+
+			<h2>Databases</h2>
+					<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+
+					<tr>
+						<td>
+Make the following CSV file: <br />
+Fred Bloggs,Manager,Male,45 <br />
+Laura Smith,Cook,Female,23<br />
+Debbit Watts,Professor,Female,38<br /><br />
+
+Print each row of the file with the CSV class.
+						</td>
+						<td class="answer_hide">
+require "csv" <br />
+CSV.open("dummy_data.txt", "r").each do |person|<br />
+	puts person.inspect<br />
+end
+						</td>
+					</tr>
+
+					<tr>
+						<td>Convert the CSV file into an array of arrays.</td>
+						<td class="answer_hide">CSV.read("dummy_data.txt").inspect</td>
+					</tr>	
+
+					<tr>
+						<td>Find the first person in the dummy_data.txt file that is named Laura.</td>
+						<td class="answer_hide">
+require "csv" <br />
+people = CSV.read("dummy_data.txt")<br />
+laura = people.find {|person| person[0].include?("Laura")}<br />
+puts laura.inspect
+						</td>
+					</tr>
+
+					<tr>
+						<td>Find all people in the database that are between 20 and 40 years old.</td>
+						<td class="answer_hide">
+young_people = people.find_all do |p| <br />
+	p[3].to_i.between?(20, 40)<br />
+end<br />
+puts young_people.inspect<br />
+						</td>
+					</tr>
+
+					<tr>
+						<td>Convert [[0, 1, 2], [3, 4, 5], [6, 7, 8]] to [[0, 3, 6], [1, 4, 7], [2, 5, 8]] </td>
+						<td class="answer_hide">(0..2).map {|col| a.map {|row| row[col]}}</td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>	
+				</table>
 			</div> <!-- End main div -->
 		</div> <!-- End content div -->
 	</div> <!-- Close wrapper div -->
