@@ -217,11 +217,73 @@ $ cd ~
 						<td class="answer_hide">. and .. are hidden in every folder. The . link takes you back to the same folder than you are currently in.  The .. link takes you back up to the parent folder.</td>
 					</tr>					
 			
-<!-- 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	 -->
-
+					<tr>
+						<td>Give information about all the processes that have controlling terminals.</td>
+						<td class="answer_hide">$ ps aux</td>
+					</tr>	
+			
+					<tr>
+						<td>Update the .bashrc file (for Mac users) so that $ ll will always run $ ls -ahl</td>
+						<td class="answer_hide">Navigate to the home directory and open .bashrc with vim or nano.  Type alias ll="ls -ahl" and save the changes.</td>
+					</tr>
+			
+					<tr>
+						<td>Create and delete the file Joe</td>
+						<td class="answer_hide">$ rm -rf Joe</td>
+					</tr>
+			
+					<tr>
+						<td>Write a function to make a directory and change into it</td>
+						<td class="answer_hide">$ mcd {mkdir -p &quot;$@&quot; &amp;&amp; cd &quot;$@&quot;;}</td>
+					</tr>	
+			
+					<tr>
+						<td>Print each element of the list 1, 2, 3, 4, 5</td>
+						<td class="answer_hide">$ for i in 1 2 3 4 5; do echo $i; done</td>
+					</tr>
+			
+					<tr>
+						<td>Put the command line to sleep for 2 seconds.</td>
+						<td class="answer_hide">$ sleep 2</td>
+					</tr>
+					
+					<tr>
+						<td>Write a function that puts the command line to sleep for 10 seconds and then prints hello there.</td>
+						<td class="answer_hide">$ joe () { sleep 10 && echo "hello there"; } <br />Enter the command joe to run the function.</td>
+					</tr>	
+			
+					<tr>
+						<td>It was annoying to have to wait 10 seconds for the function joe to run.  Run joe in the background, so we can continue to use the terminal while it is running.</td>
+						<td class="answer_hide">$ joe &amp;</td>
+					</tr>
+			
+					<tr>
+						<td>Print the page source of the website http://www.compoundbling.com</td>
+						<td class="answer_hide">$ curl http://www.compoundbling.com</td>
+					</tr>
+					
+			
+					<tr>
+						<td>View critical information about about the website http://www.compoundbling.com including the last time it was updated, the servers that it runs on, etc.</td>
+						<td class="answer_hide">$ curl --head  http://www.compoundbling.com</td>
+					</tr>	
+			
+					<tr>
+						<td>When scripting in Bash, you often only want to run a second command if the first command is successful.  Run a command that prints hi, but only if the first condition is met.</td>
+						<td class="answer_hide">$ true &amp;&amp; echo hi</td>
+					</tr>
+			
+					<tr>
+						<td>Now demonstrate that the second command would not have run in the first condition was not satisfied.</td>
+						<td class="answer_hide">$ false &amp;&amp; echo hi</td>
+					</tr>
+					
+			
+					<tr>
+						<td>Where should I turn for more Bash scripting resources?</td>
+						<td class="answer_hide">http://tldp.org/LDP/abs/html/ This looks good.</td>
+					</tr>	
+					
 
 				</table>
 			</div> <!-- End main div -->

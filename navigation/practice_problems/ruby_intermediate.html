@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>programming challenges</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../../js/practice_tables.js"></script>
-	
-	<link rel="stylesheet" media="screen" type="text/css" href="../../css/style.css">
-	<link rel="stylesheet" media="screen" type="text/css" href="../../css/table_challenges.css">
+    <meta charset="utf-8">
+    <title>programming challenges</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/practice_tables.js"></script>
+    
+    <link rel="stylesheet" media="screen" type="text/css" href="../../css/style.css">
+    <link rel="stylesheet" media="screen" type="text/css" href="../../css/table_challenges.css">
 
 
 </head>
 <body>
-	<div class = "wrapper">
-		<div class = "header">
-			<a href="http://compoundbling.com">Home</a>
-			<div class = "title">
-				<h1 class = "problems_h1">ruby intermediate practice problems</h1>
-				<p><strong>Click on the answer cell on the right of the question to display the answer</strong></p>
-			</div>
-		</div> <!-- Close header div -->
+    <div class = "wrapper">
+        <div class = "header">
+            <a href="http://compoundbling.com">Home</a>
+            <div class = "title">
+                <h1 class = "problems_h1">ruby intermediate practice problems</h1>
+                <p><strong>Click on the answer cell on the right of the question to display the answer</strong></p>
+            </div>
+        </div> <!-- Close header div -->
 
-		<div class = "content">
-			<div class = "main">
-				<table>
-					<thead>
-						<td class="column1">Question</td>
-						<td class="column2">Answer</td>
-					</thead>
-					
-				
-					<tr>
-						<td>a = [1, 2, 3] and b = ["a", "b", "c"].  Print out 1a, 1a, 1c, 2a..., 3c.</td>
-						<td class="answer_hide">
+        <div class = "content">
+            <div class = "main">
+                <table>
+                    <thead>
+                        <td class="column1">Question</td>
+                        <td class="column2">Answer</td>
+                    </thead>
+                    
+                
+                    <tr>
+                        <td>a = [1, 2, 3] and b = ["a", "b", "c"].  Print out 1a, 1a, 1c, 2a..., 3c.</td>
+                        <td class="answer_hide">
 a.each do |number| <br />
   &emsp;b.each do |letter|<br />
     &emsp;&emsp;puts "#{number}: #{letter}"<br />   
@@ -45,33 +45,33 @@ a.each do |number|<br />
 end
 
 
-						</td>
-					</tr>
-			
-					<tr>
-						<td>Make the following array: [["", "", ""], ["", "", ""], ["", "", ""]]</td>
-						<td class="answer_hide">
+                        </td>
+                    </tr>
+            
+                    <tr>
+                        <td>Make the following array: [["", "", ""], ["", "", ""], ["", "", ""]]</td>
+                        <td class="answer_hide">
 Array.new(3) {Array.new(3) {""}} <br /><br />
 
 <strong>Alternate Solution</strong>:<br />
 Array.new(3) {Array.new(3, "")}
 
-						</td>
-					</tr>	
+                        </td>
+                    </tr>   
 
-					<tr>
-						<td>a = [1, 2, 3] and b = ["a", "b", "c"].  Use these arrays to make [[1, "a"], [2, "b"], [3, "c"]]</td>
-						<td class="answer_hide">a.zip(b)</td>
-					</tr>	
+                    <tr>
+                        <td>a = [1, 2, 3] and b = ["a", "b", "c"].  Use these arrays to make [[1, "a"], [2, "b"], [3, "c"]]</td>
+                        <td class="answer_hide">a.zip(b)</td>
+                    </tr>   
 
-					<tr>
-						<td>Convert c = [[1, "a"], [2, "b"], [3, "c"]] to [1, "a", 2, "b", 3, "c"]</td>
-						<td class="answer_hide">c.flatten</td>
-					</tr>
-				
-					<tr>
-						<td>a = [1, 2, 3] and b = ["a", "b", "c"].  Use these arrays to make the following hash: {1 => "a", 2 => "b", 3 => "c"}</td>
-						<td class="answer_hide">
+                    <tr>
+                        <td>Convert c = [[1, "a"], [2, "b"], [3, "c"]] to [1, "a", 2, "b", 3, "c"]</td>
+                        <td class="answer_hide">c.flatten</td>
+                    </tr>
+                
+                    <tr>
+                        <td>a = [1, 2, 3] and b = ["a", "b", "c"].  Use these arrays to make the following hash: {1 => "a", 2 => "b", 3 => "c"}</td>
+                        <td class="answer_hide">
 h = {} <br />
 a.each_with_index do |number, index|<br />
   &emsp;h[number] = b[index]<br />
@@ -79,83 +79,83 @@ end<br /><br />
 
 <strong>Alternate Solution</strong>:<br />
 Hash[a.zip(b)]
-						</td>
-					</tr>
-			
-					<tr>
-						<td>a = [["matt", "plumber"], ["phil", "baker"]].  Make the following array: ["name: matt occupation: plumber", "name: phil occupation: baker"]</td>
-						<td class="answer_hide">
+                        </td>
+                    </tr>
+            
+                    <tr>
+                        <td>a = [["matt", "plumber"], ["phil", "baker"]].  Make the following array: ["name: matt occupation: plumber", "name: phil occupation: baker"]</td>
+                        <td class="answer_hide">
 a.map {|name, occupation| p "name: #{name} occupation: #{occupation}"}
-						</td>
-					</tr>	
-				
-					<tr>
-						<td>Convert a = [[2, 3], [4, 2]] to [2, 2, 2, 4, 4].  The first element in the nested arrays is the number that should be displayed and the second element in the nested array is the number of times the number should be displayed.</td>
-						<td class="answer_hide">
+                        </td>
+                    </tr>   
+                
+                    <tr>
+                        <td>Convert a = [[2, 3], [4, 2]] to [2, 2, 2, 4, 4].  The first element in the nested arrays is the number that should be displayed and the second element in the nested array is the number of times the number should be displayed.</td>
+                        <td class="answer_hide">
 a.map { |number, times| [number].cycle(times).to_a }.flatten
-						</td>
-					</tr>
-			
+                        </td>
+                    </tr>
+            
 
-			
-					<tr>
-						<td>Show two ways to get the first through third elements of the array a = [1, 2, 3, 4]</td>
-						<td class="answer_hide">
+            
+                    <tr>
+                        <td>Show two ways to get the first through third elements of the array a = [1, 2, 3, 4]</td>
+                        <td class="answer_hide">
 a[0..2] <br />
 a[0...3]
-						</td>
-					</tr>	
-				
-					<tr>
-						<td>What is the difference between include and require</td>
-						<td class="answer_hide">Use include to access methods from another module (include takes all the methods from another module).  Use require to run another file.</td>
-					</tr>
-			
-					<tr>
-						<td>Show two ways to calculate the square root of 64 with the Math module.</td>
-						<td class="answer_hide">
+                        </td>
+                    </tr>   
+                
+                    <tr>
+                        <td>What is the difference between include and require</td>
+                        <td class="answer_hide">Use include to access methods from another module (include takes all the methods from another module).  Use require to run another file.</td>
+                    </tr>
+            
+                    <tr>
+                        <td>Show two ways to calculate the square root of 64 with the Math module.</td>
+                        <td class="answer_hide">
 Math.sqrt(64) <br/><br/>
 <strong>Alternate Solution</strong>:<br />
 include Math<br />
 sqrt 64 
 
-						</td>
-					</tr>	
-				
-					<tr>
-						<td>Delete all elements of the array a = [1, 2, 3, 4] that are less than or equal to 2.</td>
-						<td class="answer_hide">
+                        </td>
+                    </tr>   
+                
+                    <tr>
+                        <td>Delete all elements of the array a = [1, 2, 3, 4] that are less than or equal to 2.</td>
+                        <td class="answer_hide">
 a.delete_if {|x| x &#60;= 2 }<br/><br/>
 
 <strong>Alternate Solution</strong>:<br />
 a.keep_if {|x| x > 2}
 
-						</td>
-					</tr>
-			
-					<tr>
-						<td>Return an array that only includes the elements greater than 2 of the array a = [1, 2, 3, 4], but do not mutate the original array.</td>
-						<td class="answer_hide">a.select {|x| x > 2}</td>
-					</tr>	
-				
-					<tr>
-						<td>Delete all elements of the array a = [1, 2, 3, 4] that are less than 2 without using delete_if or keep_if.</td>
-						<td class="answer_hide">a.select! { |x| x > 2 }</td>
-					</tr>
-			
-					<tr>
-						<td>a = [1, 2, 3, 4] print the elements of the array four times (i.e. 1, 2, 3, 4, 1, 2, …)</td>
-						<td class="answer_hide">a.cycle(4) { |x| puts x }</td>
-					</tr>	
-				
-					<tr>
-						<td>a = [1, 2, 3, 4]  Remove and return the last element of the array.</td>
-						<td class="answer_hide">a.pop</td>
-					</tr>
-			
-					<tr>
-						<td>Make a Super class with a info class method.  The info class method will puts "This is an awesome class method".  Make an add instance method that takes two parameters and returns the sum.  Then call both of the methods.</td>
-						<td class="answer_hide">
+                        </td>
+                    </tr>
+            
+                    <tr>
+                        <td>Return an array that only includes the elements greater than 2 of the array a = [1, 2, 3, 4], but do not mutate the original array.</td>
+                        <td class="answer_hide">a.select {|x| x > 2}</td>
+                    </tr>   
+                
+                    <tr>
+                        <td>Delete all elements of the array a = [1, 2, 3, 4] that are less than 2 without using delete_if or keep_if.</td>
+                        <td class="answer_hide">a.select! { |x| x > 2 }</td>
+                    </tr>
+            
+                    <tr>
+                        <td>a = [1, 2, 3, 4] print the elements of the array four times (i.e. 1, 2, 3, 4, 1, 2, …)</td>
+                        <td class="answer_hide">a.cycle(4) { |x| puts x }</td>
+                    </tr>   
+                
+                    <tr>
+                        <td>a = [1, 2, 3, 4]  Remove and return the last element of the array.</td>
+                        <td class="answer_hide">a.pop</td>
+                    </tr>
+            
+                    <tr>
+                        <td>Make a Super class with a info class method.  The info class method will puts "This is an awesome class method".  Make an add instance method that takes two parameters and returns the sum.  Then call both of the methods.</td>
+                        <td class="answer_hide">
 class Super <br />
     &emsp;def self.info<br />
         &emsp;&emsp;puts "This is an awesome class method"<br />
@@ -169,764 +169,743 @@ end<br /><br />
 p Super.info<br />
 n = Super.new<br />
 p n.add(2, 6)
-						</td>
-					</tr>	
-				
-			
-					<tr>
-						<td>Add the elements of the following array a = [1, 2, 3, 4, 5]</td>
-						<td class="answer_hide">[1, 2, 3, 4, 5].inject(:+)</td>
-					</tr>	
-			
-					<tr>
-						<td>Make a proc that multiplies a number by two and show how it works</td>
-						<td class="answer_hide">
+                        </td>
+                    </tr>   
+                
+            
+                    <tr>
+                        <td>Add the elements of the following array a = [1, 2, 3, 4, 5]</td>
+                        <td class="answer_hide">[1, 2, 3, 4, 5].inject(:+)</td>
+                    </tr>   
+            
+                    <tr>
+                        <td>Make a proc that multiplies a number by two and show how it works</td>
+                        <td class="answer_hide">
 p = Proc.new {|n| n * 2} <br />
 p.call(2)<br /><br />
 
 <strong>Alternate Syntax</strong>:<br />
 p = proc {|n| n * 2} <br />
 p.call(3)
-						</td>
-					</tr>	
-			
-					<tr>
-						<td>Make a proc that multiplies two numbers together and show how it works.</td>
-						<td class="answer_hide">
+                        </td>
+                    </tr>   
+            
+                    <tr>
+                        <td>Make a proc that multiplies two numbers together and show how it works.</td>
+                        <td class="answer_hide">
 p = Proc.new {|num1, num2| num1 * num2}<br />
 p.call(4, 5)
-						</td>
-					</tr>	
-			
-					<tr>
-						<td>
+                        </td>
+                    </tr>   
+            
+                    <tr>
+                        <td>
 Make the following function puts "Hi"<br />
 def display_block<br />
-	&emsp;yield<br />
+    &emsp;yield<br />
 end
-						</td>
-						<td class="answer_hide">display_block { puts "Hi" }</td>
-					</tr>	
-			
-					<tr>
-						<td>
+                        </td>
+                        <td class="answer_hide">display_block { puts "Hi" }</td>
+                    </tr>   
+            
+                    <tr>
+                        <td>
 Call the following method so the output is "Programming Powers"<br />
 def breakout(session_name) <br/>
-	&emsp;Proc.new { |presenter| puts "#{session_name} #{presenter}" } <br/>
+    &emsp;Proc.new { |presenter| puts "#{session_name} #{presenter}" } <br/>
 end<br/>
-						</td>
-						<td class="answer_hide">
+                        </td>
+                        <td class="answer_hide">
 p = breakout("Programming")<br/>
 p.call("Powers")
-						</td>
-					</tr>	
-			
-					<tr>
-						<td>arr = ["a", "b"].  Capitalize each element of arr with a proc.</td>
-						<td class="answer_hide">arr.map(&#38;:upcase)</td>
-					</tr>	
-			
-					<tr>
-						<td>What do you call a method that returns a boolean?</td>
-						<td class="answer_hide">A predicate</td>
-					</tr>	
-					
-					<tr>
-						<td>Center the string "Bob" in a 40 character string with *** on either side of the string</td>
-						<td class="answer_hide">"Bob".center(40, "*")</td>
-					</tr>	
-					
-					<tr>
-						<td>Align the string "Bob" to the right of a 40 character string that has *** on the left of the string.</td>
-						<td class="answer_hide">"Bob".rjust(40, "*")<br/>If you wanted to left justify, you can use the ljust method.</td>
-					</tr>	
-					
-					<tr>
-						<td>a = [1, 2, 3, 4]  Add the string "nice" to the beginning of the string.</td>
-						<td class="answer_hide">a.unshift("nice")</td>
-					</tr>	
-					
-					<tr>
-						<td>Write a one-liner that returns the following output: {false=>[1, 3, 5, 7, 9, 11, 13, 15, 17, 19], true=>[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]}</td>
-						<td class="answer_hide">(1..20).group_by {|x| x.even?}</td>
-					</tr>	
+                        </td>
+                    </tr>   
+            
+                    <tr>
+                        <td>arr = ["a", "b"].  Capitalize each element of arr with a proc.</td>
+                        <td class="answer_hide">arr.map(&#38;:upcase)</td>
+                    </tr>   
+            
+                    <tr>
+                        <td>What do you call a method that returns a boolean?</td>
+                        <td class="answer_hide">A predicate</td>
+                    </tr>   
+                    
+                    <tr>
+                        <td>Center the string "Bob" in a 40 character string with *** on either side of the string</td>
+                        <td class="answer_hide">"Bob".center(40, "*")</td>
+                    </tr>   
+                    
+                    <tr>
+                        <td>Align the string "Bob" to the right of a 40 character string that has *** on the left of the string.</td>
+                        <td class="answer_hide">"Bob".rjust(40, "*")<br/>If you wanted to left justify, you can use the ljust method.</td>
+                    </tr>   
+                    
+                    <tr>
+                        <td>a = [1, 2, 3, 4]  Add the string "nice" to the beginning of the string.</td>
+                        <td class="answer_hide">a.unshift("nice")</td>
+                    </tr>   
+                    
+                    <tr>
+                        <td>Write a one-liner that returns the following output: {false=>[1, 3, 5, 7, 9, 11, 13, 15, 17, 19], true=>[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]}</td>
+                        <td class="answer_hide">(1..20).group_by {|x| x.even?}</td>
+                    </tr>   
 
-					<tr>
-						<td>Define a method that prints self.  Then use this method as a proc to print the numbers 1 to 100.</td>
-						<td class="answer_hide">
+                    <tr>
+                        <td>Define a method that prints self.  Then use this method as a proc to print the numbers 1 to 100.</td>
+                        <td class="answer_hide">
 def powersprint <br />
-	&emsp;puts self<br />
+    &emsp;puts self<br />
 end<br /><br />
 
 (1..100).each(&#38;:powersprint)
-						</td>
-					</tr>	
+                        </td>
+                    </tr>   
 
-					<tr>
-						<td>Return a new array that multiplies each even element of an array by 3.  a = [1, 2, 3, 4, 5, 6, 7] should simplify to [6, 12, 18]. </td>
-						<td class="answer_hide">[1, 2, 3, 4, 5, 6, 7].map {|x| x * 3 if x.even?}.compact <br/ >
-							OR <br />
-						a.select {|x| x.even? }.map {|element| element * 3 }</td>
-					</tr>	
+                    <tr>
+                        <td>Return a new array that multiplies each even element of an array by 3.  a = [1, 2, 3, 4, 5, 6, 7] should simplify to [6, 12, 18]. </td>
+                        <td class="answer_hide">[1, 2, 3, 4, 5, 6, 7].map {|x| x * 3 if x.even?}.compact <br/ >
+                            OR <br />
+                        a.select {|x| x.even? }.map {|element| element * 3 }</td>
+                    </tr>   
 
-					<tr>
-						<td>Return an array that returns true for even numbers and false for odd numbers.  [1, 2, 3, 4] should simplify to [false, true, false, true].</td>
-						<td class="answer_hide">[1, 2, 3, 4].map(&#38;:even?)</td>
-					</tr>	
+                    <tr>
+                        <td>Return an array that returns true for even numbers and false for odd numbers.  [1, 2, 3, 4] should simplify to [false, true, false, true].</td>
+                        <td class="answer_hide">[1, 2, 3, 4].map(&#38;:even?)</td>
+                    </tr>   
 
-					<tr>
-						<td>Create a 5 element array that is filled with 5 random numbers from 1 to 10.</td>
-						<td class="answer_hide">Array.new(5).map{rand(0..10)}<br />OR<br />Array.new(5) {rand(1..10)} </td>
-					</tr>	
+                    <tr>
+                        <td>Create a 5 element array that is filled with 5 random numbers from 1 to 10.</td>
+                        <td class="answer_hide">Array.new(5).map{rand(0..10)}<br />OR<br />Array.new(5) {rand(1..10)} </td>
+                    </tr>   
 
-					<tr>
-						<td>a = [1, 2, 3, 4, 5, 6]  Delete the first three elements from the array.</td>
-						<td class="answer_hide">a.drop(3)<br />OR<br/>a.shift(3)<br />Note that shift mutates the original array and drop does not.</td>
-					</tr>	
+                    <tr>
+                        <td>a = [1, 2, 3, 4, 5, 6]  Delete the first three elements from the array.</td>
+                        <td class="answer_hide">a.drop(3)<br />OR<br/>a.shift(3)<br />Note that shift mutates the original array and drop does not.</td>
+                    </tr>   
 
-					<tr>
-						<td>a = ["a", "b", "c"]  Print out "0 -- 1 -- 2 --"</td>
-						<td class="answer_hide">a.each_index {|x| print "#{x} -- "}</td>
-					</tr>
+                    <tr>
+                        <td>a = ["a", "b", "c"]  Print out "0 -- 1 -- 2 --"</td>
+                        <td class="answer_hide">a.each_index {|x| print "#{x} -- "}</td>
+                    </tr>
 
-					<tr>
-						<td>a = [1, 2, 3, 4]  Attempt to retrieve an element at the 5th position and if no element is found, return "cats".</td>
-						<td class="answer_hide">a.fetch(5, "cats")</td>
-					</tr>
+                    <tr>
+                        <td>a = [1, 2, 3, 4]  Attempt to retrieve an element at the 5th position and if no element is found, return "cats".</td>
+                        <td class="answer_hide">a.fetch(5, "cats")</td>
+                    </tr>
 
-					<tr>
-						<td>Return nil if the variable x is not defined and the type of variable x is if it is defined.</td>
-						<td class="answer_hide">defined?(x)</td>
-					</tr>
+                    <tr>
+                        <td>Return nil if the variable x is not defined.  If x is defined, return the type of variable x.</td>
+                        <td class="answer_hide">defined?(x)</td>
+                    </tr>
 
-					<tr>
-						<td>Write a linear search algorithm for an unsorted list without using any array methods other than Array#length.</td>
-						<td class="answer_hide">
+                    <tr>
+                        <td>Write a linear search algorithm for an unsorted list without using any array methods other than Array#length.</td>
+                        <td class="answer_hide">
 def linear_search(value, array)<br />
-	&emsp;counter = 0<br />
-	&emsp;while counter < array.length<br />
-		&emsp;&emsp;if array[counter] == value<br />
-			&emsp;&emsp;&emsp;return counter<br />
-		&emsp;&emsp;else<br />
-			&emsp;&emsp;&emsp;counter += 1<br />
-		&emsp;&emsp;end<br />
-	&emsp;end<br />
-	&emsp;"Value not found"<br />
+    &emsp;counter = 0<br />
+    &emsp;while counter < array.length<br />
+        &emsp;&emsp;if array[counter] == value<br />
+            &emsp;&emsp;&emsp;return counter<br />
+        &emsp;&emsp;else<br />
+            &emsp;&emsp;&emsp;counter += 1<br />
+        &emsp;&emsp;end<br />
+    &emsp;end<br />
+    &emsp;"Value not found"<br />
 end<br />
-						</td>
-					</tr>
+                        </td>
+                    </tr>
 
-					<tr>
-						<td>Write a binary search algorithm for a sorted list of numbers and return "Value not found" if the search value is not in the sorted array.</td>
-						<td class="answer_hide">
+                    <tr>
+                        <td>Write a binary search algorithm for a sorted list of numbers and return "Value not found" if the search value is not in the sorted array.</td>
+                        <td class="answer_hide">
 def binary_search(value, array, start_index = 0, end_index = (array.length - 1))<br />
-	&emsp;while start_index &#60;= end_index<br />
-		&emsp;&emsp;middle_index = (start_index + end_index) / 2<br />
-		&emsp;&emsp;if array[middle_index] == value<br />
-			&emsp;&emsp;&emsp;return middle_index<br />
-		&emsp;&emsp;elsif value &#60; array[middle_index]<br />
-			&emsp;&emsp;&emsp;end_index = middle_index - 1<br />
-			&emsp;&emsp;&emsp;binary_search(value, array, start_index, end_index)<br />
-		&emsp;&emsp;else<br />
-			&emsp;&emsp;&emsp;start_index = middle_index + 1<br />
-			&emsp;&emsp;&emsp;binary_search(value, array, start_index, end_index)<br />
-		&emsp;&emsp;end<br />
-	&emsp;end<br />
-	&emsp;"Value not found"<br />
+    &emsp;while start_index &#60;= end_index<br />
+        &emsp;&emsp;middle_index = (start_index + end_index) / 2<br />
+        &emsp;&emsp;if array[middle_index] == value<br />
+            &emsp;&emsp;&emsp;return middle_index<br />
+        &emsp;&emsp;elsif value &#60; array[middle_index]<br />
+            &emsp;&emsp;&emsp;end_index = middle_index - 1<br />
+            &emsp;&emsp;&emsp;binary_search(value, array, start_index, end_index)<br />
+        &emsp;&emsp;else<br />
+            &emsp;&emsp;&emsp;start_index = middle_index + 1<br />
+            &emsp;&emsp;&emsp;binary_search(value, array, start_index, end_index)<br />
+        &emsp;&emsp;end<br />
+    &emsp;end<br />
+    &emsp;"Value not found"<br />
 end
 
-						</td>
-					</tr>
+                        </td>
+                    </tr>
 
-					<tr>
-						<td>Add regex grouping question</td>
-						<td class="answer_hide"></td>
-					</tr>
+                    <tr>
+                        <td>Print the strings "1" through "100" with a proc (i.e. start with the range (1..100) and not ("1".."100").</td>
+                        <td class="answer_hide">(1..100).map(&#38;:to_s)</td>
+                    </tr>
 
-					<tr>
-						<td>Print the strings "1" through "100" with a proc (i.e. start with the range (1..100) and not ("1".."100").</td>
-						<td class="answer_hide">(1..100).map(&#38;:to_s)</td>
-					</tr>
+                    <tr>
+                        <td>Define a method that takes a block with your name as an argument and prints your name n times (where n is specified as an argument).</td>
+                        <td class="answer_hide">
+def print_name(n, &amp;block) <br />
+    &emsp;n.times do<br />
+        &emsp;&emsp;yield<br />
+    &emsp;end<br />
+end<br />
+<br />
+print_name(5) {puts &quot;Powers&quot;}
+                        </td>
+                    </tr>
 
-					<tr>
-						<td>Define a method that takes a block with your name as an argument and prints your name n times (where n is specified as an argument).</td>
-						<td class="answer_hide"></td>
-					</tr>
+                    <tr>
+                        <td>Create an array of 100 random numbers between 0 and 1.</td>
+                        <td class="answer_hide">
+(1..100).map{rand} <br />
+OR <br />
+Array.new(100) {rand}
+                        </td>
+                    </tr>
 
-					<tr>
-						<td>Create an array of 100 random numbers between 0 and 1.</td>
-						<td class="answer_hide">(1..100).map{rand}</td>
-					</tr>
+                    <tr>
+                        <td>Create a 10 X 10 array and randomly fill each cell with "D" or "A".</td>
+                        <td class="answer_hide">Array.new(10) {Array.new(10) {rand > 0.5 ? "D" : "A"}}</td>
+                    </tr>
 
-					<tr>
-						<td>Create a 10 X 10 array and randomly fill each cell with "D" or "A".</td>
-						<td class="answer_hide">Array.new(10) {Array.new(10) {rand > 0.5 ? "D" : "A"}}</td>
-					</tr>
-
-					<tr>
-						<td>Suppose you are working on a project with multiple files for each class - how do you run the tests (written in Ruby) of a given file and not the tests from the other files?</td>
-						<td class="answer_hide">
+                    <tr>
+                        <td>Suppose you are working on a project with multiple files for each class - how do you run the tests (written in Ruby) of a given file and not the tests from the other files?</td>
+                        <td class="answer_hide">
 if __FILE__ == $0<br />
-	&emsp;add tests here<br />
+    &emsp;add tests here<br />
 end
-						</td>
-					</tr>
+                        </td>
+                    </tr>
 
-					<tr>
-						<td>Change 123.12.1234 to 123-12-xxxx</td>
-						<td class="answer_hide">
+                    <tr>
+                        <td>Change 123.12.1234 to 123-12-xxxx</td>
+                        <td class="answer_hide">
 matching_part = "123.12.1234".match(/(\d{3}).(\d{2}).(\d{4})/).to_s <br />
 matching_part.sub(/(\d{3}).(\d{2}).(\d{4})/, '\1-\2-xxxx') 
-						</td>
-					</tr>
+                        </td>
+                    </tr>
 
-					<tr>
-						<td>
+                    <tr>
+                        <td>
 Use pry to evaluate the values of the variables in the following method call.<br />
 def add(num1, num2)<br />
-	&emsp;num3 = num1 + num2<br />
+    &emsp;num3 = num1 + num2<br />
 end
-						</td>
-						<td class="answer_hide">
+                        </td>
+                        <td class="answer_hide">
 Update the file as follows: <br />
 require 'pry'<br />
 def add(num1, num2)<br />
-	&emsp;num3 = num1 + num2<br />
-	&emsp;binding.pry<br />
+    &emsp;num3 = num1 + num2<br />
+    &emsp;binding.pry<br />
 end<br /><br />
 Run the file in Terminal with $ ruby $FILENAME<br>
 Type num1, num2, and num3 to see the values of the variables <br />
 Multiple pry bindings can be used and you can skip to the next with Control + D<br />
 Exit pry by typing exit.
-						</td>
-					</tr>
+                        </td>
+                    </tr>
 
-					<tr>
-						<td>
+                    <tr>
+                        <td>
 Paste this information into a separate file called employees.csv.  Check to make sure the file exists. <br />
 matt,powers,123<br />
 bob,loblaw,654<br />
 homer,simpson,789<br />
-						</td>
-						<td class="answer_hide">File.exis?("employees.csv")</td>
-					</tr>
+                        </td>
+                        <td class="answer_hide">File.exist?("employees.csv")</td>
+                    </tr>
 
-					<tr>
-						<td>Calculate the factorial of 10 with a symbol to proc.</td>
-						<td class="answer_hide">(1..10).inject(:*)</td>
-					</tr>
-
-
-					<tr>
-						<td>Use a one-liner to find the longest word in the array: arr = %w{what is the longest word in this arrrrrray}</td>
-						<td class="answer_hide">arr.inject { |longest_word, word| word.length > longest_word.length ? word : longest_word}</td>
-					</tr>
+                    <tr>
+                        <td>Calculate the factorial of 10 with a symbol to proc.</td>
+                        <td class="answer_hide">(1..10).inject(:*)</td>
+                    </tr>
 
 
-					<tr>
-						<td>Find the first number between 1 and 100 that is divisible by 10 and 7.</td>
-						<td class="answer_hide">(1..100).detect {|number| number % 10 == 0 &#38;&#38; number % 7 == 0}</td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
+                    <tr>
+                        <td>Use a one-liner to find the longest word in the array: arr = %w{what is the longest word in this arrrrrray}</td>
+                        <td class="answer_hide">arr.inject { |longest_word, word| word.length > longest_word.length ? word : longest_word}</td>
+                    </tr>
 
 
+                    <tr>
+                        <td>Find the first number between 1 and 100 that is divisible by 10 and 7.</td>
+                        <td class="answer_hide">(1..100).detect {|number| number % 10 == 0 &#38;&#38; number % 7 == 0}</td>
+                    </tr>
 
-					</table>
+                    <tr>
+                        <td>Convert [[0, 1, 2], [3, 4, 5], [6, 7, 8]] to [[0, 3, 6], [1, 4, 7], [2, 5, 8]]  Notice the pattern - we are looking for the columns.</td>
+                        <td class="answer_hide">(0..2).map {|col| a.map {|row| row[col]}}</td>
+                    </tr>                   
 
-			<h2>Files and Directories</h2>
-					<table>
-					<thead>
-						<td class="column1">Question</td>
-						<td class="column2">Answer</td>
-					</thead>
-					
-				
-					<tr>
-						<td>Get information from the keyboard and store the information in the variable a</td>
-						<td class="answer_hide">a = gets.chomp</td>
-					</tr>
+                    <tr>
+                        <td>Convert a = [[1, 2], [3, 4]] and b = [[5,6]] to [[1, 2], [3, 4], [5, 6]]</td>
+                        <td class="answer_hide">a + b</td>
+                    </tr>
+
+                    <tr>
+                        <td>a = ["snake", "rat", "cat"]  b = [1, 2, "bat"]  See if any of the elements from b are included in a.</td>
+                        <td class="answer_hide">a.any? {|element| b.include?(element)}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Convert a = [[1,2],[3,4]] to [1, 2, 3, 4].</td>
+                        <td class="answer_hide">a.flat_map {|i| i }</td>
+                    </tr>
+
+                    <tr>
+                        <td>a = ["mat", "fat", "bat"]  Return true if every element of the array is 3 characters long and false otherwise.</td>
+                        <td class="answer_hide">a.all? {|element| element.length == 3}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Use the gets method to get two integers form the user.</td>
+                        <td class="answer_hide">x, y = gets.chomp.split.map(&amp;:to_i)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Define a function called add that lets you run $ ruby add_argv.rb 3 4 from the command line and returns 7.</td>
+                        <td class="answer_hide">
+def add<br />
+    &emsp;num1 = ARGV[0]<br />
+    &emsp;num2 = ARGV[1]<br />
+    &emsp;eval(num1) + eval(num2)<br />
+end<br />
+<br />
+p add
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Do a case insensitive sort of the following array: %w{apple Bear matt Aardvark phat} </td>
+                        <td class="answer_hide">arr.sort_by(&:downcase)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Sort the following hash by the hash values: hash = {bill: 65, bob:42, frank: 89, john: 5}</td>
+                        <td class="answer_hide">hash.sort_by{|_, value| value}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Print out the following string: "read       **************my**************       blog"</td>
+                        <td class="answer_hide">puts "%10s %30s %10s" %["read".ljust(10), "my".center(30, "*"), "blog".rjust(10) ]</td>
+                    </tr>
+
+                     <tr>
+                        <td>The following inject questions were inspired by <a href="https://twitter.com/guillaumegaluz">Guillaume Galuz</a>.  Convert array = [[1, "a"], [2, "b"]] to {1=>"a", 2=>"b"} using inject.</td>
+                        <td class="answer_hide">
+array.inject({}) do |hash, element|<br />
+&nbsp;&nbsp;hash[element.first] = element.last<br />
+&nbsp;&nbsp;hash<br />
+end
+                        </td>
+                    </tr>
+
+<!--                     <tr>
+                        <td></td>
+                        <td class="answer_hide"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="answer_hide"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="answer_hide"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="answer_hide"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="answer_hide"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="answer_hide"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="answer_hide"></td>
+                    </tr> --> 
+                    
+
+                    </table>
 
 
-					<tr>
-						<td>Create a text file with 10 lines of text and name it small_text_file.txt.  Use Ruby to iterate over the lines and print each line.</td>
-						<td class="answer_hide">File.open("small_text_file.txt").each {|line| puts line}<br />OR<br />File.new("small_text_file.txt", "r").each {|line| puts line}</td>
-					</tr>
 
-					<tr>
-						<td>What is the difference between the new and open File class methods?</td>
-						<td class="answer_hide">File#open closes the file after the code block is finished executing.  File#new only returns a file object referring to the file.</td>
-					</tr>
 
-					<tr>
-						<td>Read through the small_text_file.txt file line by line by hitting enter for every line.</td>
-						<td class="answer_hide">
+
+
+
+
+
+
+
+
+
+
+
+
+            <h2>Files and Directories</h2>
+                    <table>
+                    <thead>
+                        <td class="column1">Question</td>
+                        <td class="column2">Answer</td>
+                    </thead>
+                    
+                
+                    <tr>
+                        <td>Get information from the keyboard and store the information in the variable a</td>
+                        <td class="answer_hide">a = gets.chomp</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Create a text file with 10 lines of text and name it small_text_file.txt.  Use Ruby to iterate over the lines and print each line.</td>
+                        <td class="answer_hide">File.open("small_text_file.txt").each {|line| puts line}<br />OR<br />File.new("small_text_file.txt", "r").each {|line| puts line}</td>
+                    </tr>
+
+                    <tr>
+                        <td>What is the difference between the new and open File class methods?</td>
+                        <td class="answer_hide">File#open closes the file after the code block is finished executing.  File#new only returns a file object referring to the file.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Read through the small_text_file.txt file line by line by hitting enter for every line.</td>
+                        <td class="answer_hide">
 f = File.new("small_text_file.txt", "r") <br />
 puts f.gets<br />
 f.close
-						</td>
-					</tr>
-					
-					<tr>
-						<td>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
 Create a text file called dummy_data.txt with the following information:<br />
 Fred Bloggs,Manager,Male,45<br />
 Laura Smith,Cook,Female,23<br />
 Debbit Watts,Professor,Female,38 <br /><br />
 
 Print every line of the file.
-						</td>
-						<td class="answer_hide">File.open("dummy_data.txt", "r").each {|line| puts line}</td>
-					</tr>
+                        </td>
+                        <td class="answer_hide">File.open("dummy_data.txt", "r").each {|line| puts line}</td>
+                    </tr>
 
-					<tr>
-						<td>Open the dummy_data.txt file and print every data point that is seperated by a comma on a different row.</td>
-						<td class="answer_hide">File.open("dummy_data.txt").each(",") {|line| puts line}</td>
-					</tr>
+                    <tr>
+                        <td>Open the dummy_data.txt file and print every data point that is seperated by a comma on a different row.</td>
+                        <td class="answer_hide">
+File.open("dummy_data.txt").each(",") {|line| puts line} <br />
+OR <br />
+File.open("dummy_data.txt").each {|line| puts line.split(",")}
+                        </td>
+                    </tr>
 
-					<tr>
-						<td>Read the entire dummy_data.txt file into an array, split by lines.</td>
-						<td class="answer_hide">File.open("dummy_data.txt").readlines</td>
-					</tr>	
-					
-					<tr>
-						<td>What is the shortcut way to read the dummy_data.txt file into a string?</td>
-						<td class="answer_hide">data = File.read("dummy_data.txt")</td>
-					</tr>
+                    <tr>
+                        <td>Read the entire dummy_data.txt file into an array, split by lines.</td>
+                        <td class="answer_hide">
+File.open("dummy_data.txt").readlines<br />
+OR <br />
+File.open("dummy_data.txt", 'r').map {|line| line}
 
-					<tr>
-						<td>What is the shortcut method to read the dummy_data.txt file into an array?</td>
-						<td class="answer_hide">array_of_lines = File.readlines("dummy_data.txt")</td>
-					</tr>
+                        </td>
+                    </tr>   
+                    
+                    <tr>
+                        <td>What is the shortcut way to read the dummy_data.txt file into a string?</td>
+                        <td class="answer_hide">data = File.read("dummy_data.txt")</td>
+                    </tr>
 
-					<tr>
-						<td>Create a new file called test.txt that will say "This is a test".</td>
-						<td class="answer_hide">
+                    <tr>
+                        <td>What is the shortcut method to read the dummy_data.txt file into an array?</td>
+                        <td class="answer_hide">array_of_lines = File.readlines("dummy_data.txt")</td>
+                    </tr>
+
+                    <tr>
+                        <td>Create a new file called test.txt that will say "This is a test".</td>
+                        <td class="answer_hide">
 File.open("test.txt", "w") do |f| <br />
-	&emsp;f.puts "This is a test"<br />
+    &emsp;f.puts "This is a test"<br />
 end<br /><br />
 
 puts writes output to files in File objects
-						</td>
-					</tr>	
+                        </td>
+                    </tr>   
 
-					<tr>
-						<td>Add another line of data to the text.txt file.</td>
-						<td class="answer_hide">
+                    <tr>
+                        <td>Add another line of data to the text.txt file.</td>
+                        <td class="answer_hide">
 f = File.new("test.txt", "a")<br />
 f.puts "This is another line" <br />
-f.close
+f.close <br /><br />
 
-						</td>
-					</tr>
+OR
+File.open('new_text.txt', 'a') do |f|<br />
+    &emsp;f.puts &quot;This is another line to keep the fun level high&quot;<br />
+end
 
-					<tr>
-						<td>Rename the test.txt file powers.txt.</td>
-						<td class="answer_hide">File.rename("text.txt", "powers.txt")</td>
-					</tr>
+                        </td>
+                    </tr>
 
-					<tr>
-						<td>Delete the powers.txt file.</td>
-						<td class="answer_hide">File.delete("powers.txt")</td>
-					</tr>	
+                    <tr>
+                        <td>Rename the test.txt file powers.txt.</td>
+                        <td class="answer_hide">File.rename("text.txt", "powers.txt")</td>
+                    </tr>
 
-					<tr>
-						<td>Create another file called new.txt and see the last time that the file was modified.</td>
-						<td class="answer_hide">File.mtime("new.txt")</td>
-					</tr>
+                    <tr>
+                        <td>Delete the powers.txt file.</td>
+                        <td class="answer_hide">File.delete("powers.txt")</td>
+                    </tr>   
 
-					<tr>
-						<td>Check if the file new.txt exists.</td>
-						<td class="answer_hide">File.exist?("new.txt")</td>
-					</tr>
+                    <tr>
+                        <td>Create another file called new.txt and see the last time that the file was modified.</td>
+                        <td class="answer_hide">File.mtime("new.txt")</td>
+                    </tr>
 
-					<tr>
-						<td>Return the file size of the new.txt file.</td>
-						<td class="answer_hide">File.size("new.txt")</td>
-					</tr>	
+                    <tr>
+                        <td>Check if the file new.txt exists.</td>
+                        <td class="answer_hide">File.exist?("new.txt")</td>
+                    </tr>
 
-					<tr>
-						<td>How can you deal with directories in Ruby?</td>
-						<td class="answer_hide">The Dir class.</td>
-					</tr>
+                    <tr>
+                        <td>Return the file size of the new.txt file.</td>
+                        <td class="answer_hide">File.size("new.txt")</td>
+                    </tr>   
 
-					<tr>
-						<td>Change to the parent directory of the Ruby program.</td>
-						<td class="answer_hide">Dir.chdir("../")</td>
-					</tr>
+                    <tr>
+                        <td>How can you deal with directories in Ruby?</td>
+                        <td class="answer_hide">The Dir class.</td>
+                    </tr>
 
-					<tr>
-						<td>Print the present working directory.</td>
-						<td class="answer_hide">Dir.pwd</td>
-					</tr>	
+                    <tr>
+                        <td>Change to the parent directory of the Ruby program.</td>
+                        <td class="answer_hide">Dir.chdir("../")</td>
+                    </tr>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
+                    <tr>
+                        <td>Print the present working directory.</td>
+                        <td class="answer_hide">Dir.pwd</td>
+                    </tr>   
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
-				</table>
-
-
-			<h2>Databases</h2>
-					<table>
-					<thead>
-						<td class="column1">Question</td>
-						<td class="column2">Answer</td>
-					</thead>
-
-
-					<tr>
-						<td>
+                     <tr>
+                        <td>
 Make the following CSV file: <br />
 Fred Bloggs,Manager,Male,45 <br />
 Laura Smith,Cook,Female,23<br />
 Debbit Watts,Professor,Female,38<br /><br />
 
 Print each row of the file with the CSV class.
-						</td>
-						<td class="answer_hide">
+                        </td>
+                        <td class="answer_hide">
 require "csv" <br />
-CSV.open("dummy_data.txt", "r").each do |person|<br />
-	puts person.inspect<br />
+CSV.open("dummy_data.csv", "r").each do |person|<br />
+    puts person.inspect<br />
 end
-						</td>
-					</tr>
+                        </td>
+                    </tr>
 
-					<tr>
-						<td>Convert the CSV file into an array of arrays.</td>
-						<td class="answer_hide">CSV.read("dummy_data.txt").inspect</td>
-					</tr>	
+                    <tr>
+                        <td>Convert the CSV file into an array of arrays.</td>
+                        <td class="answer_hide">CSV.read("dummy_data.txt").inspect</td>
+                    </tr>   
 
-					<tr>
-						<td>Find the first person in the dummy_data.txt file that is named Laura.</td>
-						<td class="answer_hide">
+                    <tr>
+                        <td>Find the first person in the dummy_data.txt file that is named Laura.</td>
+                        <td class="answer_hide">
 require "csv" <br />
 people = CSV.read("dummy_data.txt")<br />
 laura = people.find {|person| person[0].include?("Laura")}<br />
 puts laura.inspect
-						</td>
-					</tr>
+                        </td>
+                    </tr>
 
-					<tr>
-						<td>Find all people in the database that are between 20 and 40 years old.</td>
-						<td class="answer_hide">
+                    <tr>
+                        <td>Find all people in the database that are between 20 and 40 years old.</td>
+                        <td class="answer_hide">
 young_people = people.find_all do |p| <br />
-	p[3].to_i.between?(20, 40)<br />
+    p[3].to_i.between?(20, 40)<br />
 end<br />
 puts young_people.inspect<br />
-						</td>
-					</tr>
+                        </td>
+                    </tr>
+    
+                </table>
 
-					<tr>
-						<td>Convert [[0, 1, 2], [3, 4, 5], [6, 7, 8]] to [[0, 3, 6], [1, 4, 7], [2, 5, 8]] </td>
-						<td class="answer_hide">(0..2).map {|col| a.map {|row| row[col]}}</td>
-					</tr>	
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
+            <h2>Databases</h2>
+                    <table>
+                    <thead>
+                        <td class="column1">Question</td>
+                        <td class="column2">Answer</td>
+                    </thead>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
+                    <tr>
+                        <td>Open up the command line SQLite3 client to perform some SQL queries (note that the next few exercises will be pure SQL, not Ruby).</td>
+                        <td class="answer_hide">
+sqlite3 begruby.db<br/>
+Then type SQL and enter. 
+<br /> begruby.db is the chosen filename.
+                        </td>
+                    </tr>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
+                    <tr>
+                        <td>Create a table called people with name, job, gender, and age attributes.</td>
+                        <td class="answer_hide">
+CREATE TABLE people (<br />
+id integer primary key,<br />
+name varchar(50),<br />
+job varchar(50),<br />
+gender varchar(6),<br />
+age integer);
+                        </td>
+                    </tr>   
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
+                    <tr>
+                        <td>Add a row to the people table.  How about Bob Loblaw, a 36 year old male lawyer.</td>
+                        <td class="answer_hide">
+INSERT INTO people (name, age, gender, job) VALUES (&quot;Bob Loblaw&quot;, 36, &quot;Male&quot;, &quot;Lawyer&quot;);
+                        </td>
+                    </tr>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
+                    <tr>
+                        <td>Print all the data from the people table.</td>
+                        <td class="answer_hide">SELECT * FROM people;</td>
+                    </tr>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
+                    <tr>
+                        <td>Print the name data for everyone in the people table.</td>
+                        <td class="answer_hide">SELECT name FROM people;</td>
+                    </tr>   
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
+                    <tr>
+                        <td>Print all attributes for the person with id = 2 in the person table.</td>
+                        <td class="answer_hide">SELECT * FROM people WHERE id = 2;</td>
+                    </tr>
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>
+                    <tr>
+                        <td>Print all people from the people table that are between 30 and 40.</td>
+                        <td class="answer_hide">SELECT * FROM people where age &gt; 30 AND age &lt; 40;</td>
+                    </tr>   
 
-					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
-					</tr>	
-				</table>
-			</div> <!-- End main div -->
-		</div> <!-- End content div -->
-	</div> <!-- Close wrapper div -->
+                    <tr>
+                        <td>Print the people in the database from oldest to youngest.</td>
+                        <td class="answer_hide">SELECT * FROM people ORDER BY age DESC;</td>
+                    </tr>
+
+                    <tr>
+                        <td>Find the 3 oldest people in the database</td>
+                        <td class="answer_hide">SELECT * FROM people ORDER BY age DESC LIMIT 3;</td>
+                    </tr>
+
+                    <tr>
+                        <td>Delete all people that are less than 20 in the people table.</td>
+                        <td class="answer_hide">DELETE FROM people WHERE age &lt; 20;</td>
+                    </tr>   
+
+                    <tr>
+                        <td>Delete all pepole named Bob from the people table.</td>
+                        <td class="answer_hide">DELETE FROM people WHERE name = "Bob Loblaw";</td>
+                    </tr>
+
+                    <tr>
+                        <td>Add Bill, a 23 year old male plumber to the database.  Then change Bill's name to Frankie.</td>
+                        <td class="answer_hide">UPDATE people SET name = "Franie" WHERE name = "Bill";</td>
+                    </tr>   
+
+                    <tr>
+                        <td>Use the SQLite Ruby gem to interact with the database with Ruby.</td>
+                        <td class="answer_hide">
+In irb:
+$db = SQLite3::Database.new(&quot;dbfile&quot;)<br />
+$db.results_as_hash = true<br /><br />
+
+The first command did not not work for me initially, but it worked after I ran $ rvm rubygems current
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Write a method that will let you disconnect from the database.</td>
+                        <td class="answer_hide">
+def disconnect_and_quit
+    $db.close
+    puts "Bye!"
+    exit
+end
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Write a method that will let you create a table of singers.</td>
+                        <td class="answer_hide">
+def create_table
+    puts "Creating singers table"
+    $db.execute %q{
+        CREATE TABLE people (
+        id integer primary key,
+        name varchar(50),
+        job varchar(50),
+        gender varchar(6),
+        age integer)
+    }
+end
+                        </td>
+                    </tr>   
+
+                    <tr>
+                        <td>
+def add_person(name, job, gender, age)
+    $db.execute("INSERT INTO people (name, job, gender, age) VALUES (?, ?, ?, ?)", name, job, gender, age)
+end
+                        </td>
+                        <td class="answer_hide"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="answer_hide">
+def find_person
+    person = $db.execute(SELECT * FROM people )
+end
+                        </td>
+                    </tr>   
+
+<!--                     <tr>
+                        <td></td>
+                        <td class="answer_hide"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="answer_hide"></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="answer_hide"></td>
+                    </tr>    -->
+                </table>
+            </div> <!-- End main div -->
+        </div> <!-- End content div -->
+    </div> <!-- Close wrapper div -->
 </body>
 </html>

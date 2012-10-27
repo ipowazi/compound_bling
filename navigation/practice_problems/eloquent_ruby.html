@@ -164,6 +164,613 @@ This is something that is not desirable (especially if you put the string cool a
 						<td class="answer_hide"></td>
 					</tr>
 					</table>
+
+
+
+
+
+
+
+
+
+			<h2>Chapter 7: Treat Everything Like an Object</h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td>
+Use the code below to define a word_count method.<br />
+class Document<br />
+	&emsp;def initialize<br />
+		&emsp;&emsp;@contents = &quot;I love programming and that is the new story of my life&quot;<br />
+	&emsp;end<br />
+<br />
+	&emsp;def words<br />
+		&emsp;&emsp;@contents.split<br />
+	&emsp;end<br />
+end
+						</td>
+						<td class="answer_hide">
+def word_count<br />
+	words.size<br />
+end <br /><br />
+
+Two critical learning points from this example: <br />
+1. The words method is used as if it is a variable <br />
+2. self.words.size could have been used instead of words.size, but it was implicit that this method was being called on self, so an explicit reference was not necessary.  When explicit references are not provided, Ruby assumes you meant to call the method on self.
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+Add a method to the code in the prior example to produce the following behavior: <br />
+> d = Document.new<br />
+> puts d<br />
+=> The document has 12 words and here is a snippet of the content: 'I love programming...'
+						</td>
+						<td class="answer_hide">
+def to_s<br />
+	&emsp;&quot;The document has #{word_count} words and here is a snippet of the content: '#{words[0..2].join(&quot; &quot;)}...'&quot;<br />
+end <br /><br />
+
+If to_s is defined as a method, it will print out your custom message instead of the object reference and does not need to be explicitly called.
+						</td>
+					</tr>
+
+					<tr>
+						<td>Write a program that behaves like irb.</td>
+						<td class="answer_hide">
+while true<br />
+	&emsp;print &quot;Cmd &gt; &quot;<br />
+	&emsp;cmd = gets<br />
+	&emsp;puts ( eval(cmd) )<br />
+end
+						</td>
+					</tr>
+
+					<tr>
+						<td>Update the code so the word_count method cannot be called outside the Document class and demonstrate the behavior.</td>
+						<td class="answer_hide">
+class Document<br />
+	&emsp;def initialize<br />
+		&emsp;&emsp;@contents = &quot;I love programming and that is the new story of my life&quot;<br />
+	&emsp;end<br />
+<br />
+	&emsp;def words<br />
+		&emsp;&emsp;@contents.split<br />
+	&emsp;end<br />
+<br />
+	&emsp;def to_s<br />
+		&emsp;&emsp;&quot;The document has #{word_count} words and here is a snippet of the content: '#{words[0..2].join(&quot; &quot;)}...'&quot;<br />
+	&emsp;end	<br />
+<br />
+	&emsp;private<br />
+<br />
+	&emsp;def word_count<br />
+		&emsp;&emsp;words.size<br />
+	&emsp;end<br />
+end <br /><br />
+
+d = Document.new<br />
+puts d.word_count<br />
+=> Raises and exception because everything below the private keyword is now a private method.<br /><br />
+
+However, the word_count method can still be used in other Document methods that are not private (i.e. to_s)<br />
+p d
+						</td>
+					</tr>
+
+					<tr>
+						<td>Are private methods callable from subclasses?  If so, demonstrate.</td>
+						<td class="answer_hide">
+class EloquentRuby &lt; Document<br />
+	&emsp;def to_s<br />
+		&emsp;&emsp;&quot;This is an amazing book and you should get it.&nbsp;&nbsp;The word count is not #{word_count}.&quot;<br />
+	&emsp;end<br />
+end<br />
+<br />
+er = EloquentRuby.new<br />
+p er
+						</td>
+					</tr>
+
+					<tr>
+						<td>Print the word_count method from outside the class, even though the method is private.</td>
+						<td class="answer_hide">
+d = Document.new <br />
+puts d.send (:word_count) <br /><br />
+
+Ruby lets developers override private.
+						</td>
+					</tr>
+
+					<tr>
+						<td>Write a function that returns the object type for the object that the method is called on.</td>
+						<td class="answer_hide">
+def object_class<br />
+	&quot;the object is an instance of #{self.class}&quot;<br />
+end<br/>
+<br />
+p 4.object_class<br />
+p :matt.object_class<br />
+p 5.8.object_class<br />
+p &quot;bob&quot;.object_class<br />
+p nil.object_class
+						</td>
+					</tr>
+
+					</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<h2>Chapter 9: Write Specs!</h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td>
+We will be testing the following example in this section: <br />
+class Document<br />
+	&emsp;attr_reader :title, :author, :content<br />
+	&emsp;def initialize(title, author, content)<br />
+		&emsp;&emsp;@title = title<br />
+		&emsp;&emsp;@author = author<br />
+		&emsp;&emsp;@content = content<br />
+	&emsp;end<br />
+<br />
+	&emsp;def words<br />
+		&emsp;&emsp;content.split<br />
+	&emsp;end<br />
+<br />
+	&emsp;def word_count<br />
+		&emsp;&emsp;words.length<br />
+	&emsp;end<br />
+end
+						</td>
+						<td class="answer_hide">Exciting!</td>
+					</tr>
+
+					<tr>
+						<td>Write a test that makes sure the Document class properly returns the contents.</td>
+						<td class="answer_hide">
+describe Document do<br />
+	&emsp;it &quot;should hold on to the contents&quot; do<br />
+		&emsp;&emsp;text = &quot;The cow jumped over the moon&quot;<br />
+		&emsp;&emsp;book = Document.new(&quot;Cow&quot;, &quot;Proust&quot;, text)<br />
+		&emsp;&emsp;book.content.should eq text<br />
+	&emsp;end<br />
+end
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+Write a test that makes sure the document content includes some key words. 
+						</td>
+						<td class="answer_hide">
+This code should also go in the describe block: <br />
+it &quot;the content should include the words&quot; do<br />
+	&emsp;text = &quot;The cow jumped over the moon&quot;<br />
+	&emsp;book = Document.new(&quot;Cow&quot;, &quot;Proust&quot;, text)<br />
+	&emsp;book.content.include?(&quot;moon&quot;).should eq true<br />
+	&emsp;book.content.include?(&quot;cow&quot;).should eq true<br />
+	&emsp;book.content.include?(&quot;jumped&quot;).should eq true<br />
+end
+					</tr>
+
+					<tr>
+						<td>Write a test that makes sure the word_count method is working properly.</td>
+						<td class="answer_hide">
+it &quot;should return the right length of words for the contents&quot; do<br />
+	&emsp;text = &quot;The cow jumped over the moon&quot;<br />
+	&emsp;book = Document.new(&quot;Cow&quot;, &quot;Proust&quot;, text)<br />
+	&emsp;book.word_count.should eq 6<br />
+end
+						</td>
+					</tr>
+
+					<tr>
+						<td>Refactor the prior 3 examples to make the code less redundant.</td>
+						<td class="answer_hide">
+describe Document do<br />
+	&emsp;before :each do<br />
+		&emsp;&emsp;@text = &quot;The cow jumped over the moon&quot; <br />
+		&emsp;&emsp;@book = Document.new(&quot;Cow&quot;, &quot;Proust&quot;, @text)<br />
+	&emsp;end<br />
+<br />
+	&emsp;it &quot;should hold on to the contents&quot; do<br />
+		&emsp;&emsp;@book.content.should eq @text<br />
+	&emsp;end<br />
+<br />
+	&emsp;it &quot;the content should include the words&quot; do<br />
+		&emsp;&emsp;@book.content.include?(&quot;moon&quot;).should eq true<br />
+		&emsp;&emsp;@book.content.include?(&quot;cow&quot;).should eq true<br />
+		&emsp;&emsp;@book.content.include?(&quot;jumped&quot;).should eq true<br />
+	&emsp;end<br />
+<br />
+	&emsp;it &quot;should return the right length of words for the contents&quot; do<br />
+		&emsp;&emsp;@book.word_count.should eq 6<br />
+	&emsp;end<br />
+end
+						</td>
+					</tr>					
+
+					<tr>
+						<td>
+Write a test to make sure a number in Social Security Number format is included in the content of the following document:<br />
+text = &quot;the man's SSN was 123-12-1234&quot;<br />
+ssn_book = Document.new(&quot;Serial Killer&quot;, &quot;FBI&quot;, text)
+						</td>
+						<td class="answer_hide">
+it &quot;should have numbers in social security number format&quot; do<br />
+	&emsp;text = &quot;the man's SSN was 123-12-1234&quot;<br />
+	&emsp;ssn_book = Document.new(&quot;Serial Killer&quot;, &quot;FBI&quot;, text)<br />
+	&emsp;ssn_book.content.should match(/\d{3}-\d{2}-\d{4}/)<br />
+end
+						</td>
+					</tr>
+
+					<tr>
+						<td>Make sure that the content of the cow jumps over the moon example that was used in earlier examples does not include the word San Francisco.</td>
+						<td class="answer_hide">
+it &quot;should not include words that don't belong in the content&quot; do<br />
+	&emsp;text = &quot;The cow jumped over the moon&quot;<br />
+	&emsp;book = Document.new(&quot;Cow&quot;, &quot;Proust&quot;, text)<br />
+	&emsp;book.content.should_not include(&quot;San Francisco&quot;)<br />
+end
+						</td>
+					</tr>
+
+					<tr>
+						<td>What file should the RSpec test that test the Document class be saved in?</td>
+						<td class="answer_hide">
+document_spec.rb<br />
+The convention is to name the file the class name followed by _spec.rb 
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>How do you isolate tests for a given class if that class relies on other classes?</td>
+						<td class="answer_hide">Stubs and mocks.  A stub is an object that implements the same interface as a supporting class to the class that is being tested, but returns formulated answers when it is called.  </td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+			<h2>Chapter XXXXXXXXX</h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+					</table>
+
+
+
+
+
+
+
+
+
+			<h2>Chapter XXXXXXXXX</h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+					</table>
+
+
+
+
+
+
+
+
+
+			<h2>Chapter XXXXXXXXX</h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+					</table>
+
+
+
+
+
+
+
+
+			<h2>Chapter XXXXXXXXX</h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+					</table>					
+
 			</div> <!-- End main div -->
 		</div> <!-- End content div -->
 	</div> <!-- Close wrapper div -->

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>programming challenges</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../../js/practice_tables.js"></script>
+	
+	<link rel="stylesheet" media="screen" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" media="screen" type="text/css" href="../../css/table_challenges.css">
+
+
+</head>
+<body>
+	<div class = "wrapper">
+		<div class = "header">
+			<a href="http://compoundbling.com">Home</a>
+			<div class = "title">
+				<h1 class = "problems_h1">practical object oriented design in ruby</h1>
+				<p><strong>Click on the answer cell on the right of the question to display the answer</strong></p>
+				<p>These questions and code examples are based on the book Practical Object Oriented Design in Ruby.</p>
+				<p>Some examples and language is from the book.  All credit goes to the author and all mistakes are mine.</p>
+			</div>
+		</div> <!-- Close header div -->
+
+		<div class = "content">
+			<div class = "main">
+
+
+
+
+
+
+
+
+			<h2>Chapter 2: Designing Classes with a Single Responsibility</h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td>What is the data type of the String class?</td>
+						<td class="answer_hide">The String class is an object.  It is an instance of the Class class.</td>
+					</tr>
+
+					<tr>
+						<td>What is the main purpose of good design.</td>
+						<td class="answer_hide">The main purpose of good design is to make software that is easy to change and maintain.  It is easy to build software that meets the current known requirements, but it is much harder to develop software that can be updated easily.</td>
+					</tr>
+
+					<tr>
+						<td>How many responsibilities should classes have?</td>
+						<td class="answer_hide">Classes should have a single responsibility because classes that have a single responsibility are easy to reuse.</td>
+					</tr>
+
+					<tr>
+						<td>How do you determine if something should be a class.</td>
+						<td class="answer_hide">Look for the simplist nouns.  If a simple noun has behavior and data, then it should be a method.</td>
+					</tr>
+
+					<tr>
+						<td>How do you determine if a class contains behavior that belongs somewhere else?</td>
+						<td class="answer_hide">Ask your class questions and see if the resposes are reasonable.  For example, lets say there is a person class with name and house size attributes.  Reasonable question: Person X, what is your name?  Unreasonable question: Person X, how big is your house?</td>
+					</tr>
+
+					<tr>
+						<td>How do you hone in on what your class is doing?</td>
+						<td class="answer_hide">Try to summarize the what the class is doing in one sentence and if you use the word and, then your class is probably doing more than one thing.  If the word "or" is used, then the class is probably doing two things that are not related.</td>
+					</tr>
+
+					<tr>
+						<td>What is a highly cohesive class?</td>
+						<td class="answer_hide">A class that has methods related to its central purpose.</td>
+					</tr>
+
+					<tr>
+						<td>
+Refactor the following code:<br />
+class Person<br />
+	&emsp;def initialize(height, weight)<br />
+		&emsp;&emsp;@height = height<br />
+		&emsp;&emsp;@weight = weight<br />
+	&emsp;end<br />
+<br />
+	&emsp;def bmi<br />
+		&emsp;&emsp;@weight / @height.to_f ** 2 * 703<br />
+	&emsp;end<br />
+end
+
+						</td>
+						<td class="answer_hide">
+Always wrap instance variables in accessor methods instead of directly referring to the instance variables.  This changes height and weight from data (which is referenced all over) to behavior (which is referenced once).<br />
+class Person<br />
+	&emsp;attr_reader :height, :weight<br />
+	&emsp;def initialize(height, weight)<br />
+		&emsp;&emsp;@height = height<br />
+		&emsp;&emsp;@weight = weight<br />
+	&emsp;end<br />
+<br />
+	&emsp;def bmi<br />
+		&emsp;&emsp;weight / height.to_f ** 2 * 703<br />
+	&emsp;end<br />
+end
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+What is the problem with the following code and how can it be refactored? <br />
+class BadDesign<br />
+	&emsp;attr_reader :data<br />
+	&emsp;def initialize<br />
+		&emsp;&emsp;@data = [[71, 165], [67, 178], [59, 210], [78, 250]]<br />
+	&emsp;end<br />
+<br />
+	&emsp;def bmi<br />
+		&emsp;&emsp;data.map {|height, weight| weight / height.to_f ** 2 * 703 }<br />
+	&emsp;end<br />
+end
+						</td>
+						<td class="answer_hide">
+The bmi method depends on the array's data stucture, so if the data structure changes, then the bmi method will brea.  Here is a better way to design the program:<br />
+class BetterDesign<br />
+	&emsp;attr_reader :people<br />
+	&emsp;def initialize(data)<br />
+		&emsp;&emsp;@people = bmiify(data)<br />
+	&emsp;end<br />
+<br />
+	&emsp;def bmi<br />
+		&emsp;&emsp;people.map {|person| person.weight / person.height.to_f ** 2 * 703 }<br />
+	&emsp;end<br />
+<br />
+	&emsp;Person = Struct.new(:height, :weight)<br />
+	&emsp;def bmiify(data)<br />
+		&emsp;&emsp;data.map { |cell| Person.new(cell[0], cell[1]) }<br />
+	&emsp;end<br />
+end<br />
+<br />
+students = BetterDesign.new([[71, 165], [67, 178], [59, 210], [78, 250]])<br />
+p students.bmi <br /><br />
+
+Now, all knowledge of the structure of the incoming array is isolated in the bmiify method, so if the data structure changes, this is all that needs to change.    
+						</td>
+					</tr>
+
+
+					<tr>
+						<td>
+What is the problem with the following method?<br />
+&emsp;def bmi<br />
+	&emsp;&emsp;people.map {|person| person.weight / person.height.to_f ** 2 * 703 }<br />
+&emsp;end<br />
+						</td>
+						<td class="answer_hide">
+Methods should only do one thing and this method is doing two things - iterating over the people and calculating their bmis.  Here is how the code can be refactored:<br />
+def bmis<br />
+	&emsp;people.map {|person| bmi(person) }<br />
+end<br />
+<br />
+def bmi(person)<br />
+	&emsp;person.weight / person.height.to_f ** 2 * 703<br />
+end
+						</td>
+					</tr>
+
+					</table>
+
+
+
+
+
+
+
+
+
+
+<!-- 			<h2>Chapter 3: Managing Dependencies</h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+					</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<h2>Chapter XXXXX: </h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+					</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<h2>Chapter XXXXX: </h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+					</table>
+
+
+
+
+
+
+
+
+
+
+			<h2>Chapter XXXXX: </h2>	
+				<table>
+					<thead>
+						<td class="column1">Question</td>
+						<td class="column2">Answer</td>
+					</thead>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+
+					<tr>
+						<td></td>
+						<td class="answer_hide"></td>
+					</tr>
+					</table>	 -->									
+
+
+			</div> <!-- End main div -->
+		</div> <!-- End content div -->
+	</div> <!-- Close wrapper div -->
+</body>
+</html>

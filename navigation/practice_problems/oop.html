@@ -373,7 +373,7 @@ class Person<br />
 end
 						</td>
 						<td class="answer_hide">
-As can been seen in the following code, attr_accessor just writes some code for you.<br />
+attr_accessor just writes some code for you.<br />
 Notice that the attr_writer method is just a regular method because assignments in Ruby are just calls to regular methods.<br />
 class Person<br />
 	&emsp;def name<br />
@@ -421,8 +421,8 @@ The Dog class inherits initialize from the Animal class, so new instances must b
 Initialize a new instance of the Dog class: <br />
 class Animal<br />
 	&emsp;def initialize(name, type)<br />
-		&emsp;&emsp;d@name = name<br />
-		&emsp;&emsp;d@type = type<br />
+		&emsp;&emsp;@name = name<br />
+		&emsp;&emsp;@type = type<br />
 	&emsp;end<br />
 end<br />
 <br />
@@ -508,18 +508,51 @@ p choc_chip_cookie1.baking_time
 
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>
+What are the three most common methods to have classes interact?
+						</td>
+						<td class="answer_hide">
+1. Inheritance <br />
+2. Composition - creating objects and passing them in other classes<br />
+3. Mixins - creating modules and including them in classes
+						</td>
 					</tr>
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>When is inheritance less desirable?</td>
+						<td class="answer_hide">When a subclass will overwrite a lot of different methods from the parent class because then it gets harder to keep track of things.</td>
 					</tr>
 			
 					<tr>
-						<td></td>
-						<td class="answer_hide"></td>
+						<td>Update the following code so you can use the greetings method in the Hi class. <br />
+module Hello<br />
+	&emsp;def greetings<br />
+		&emsp;&emsp;&quot;Greetings earthling&quot;<br />
+	&emsp;end<br />
+end<br />
+<br />
+class Hi<br />
+	&emsp;def sup<br />
+		&emsp;&emsp;&quot;Whattup my people&quot;<br />
+	&emsp;end<br />
+end
+						</td>
+						<td class="answer_hide">
+module Hello<br />
+	&emsp;def greetings<br />
+		&emsp;&emsp;&quot;Greetings earthling&quot;<br />
+	&emsp;end<br />
+end<br />
+<br />
+class Hi<br />
+	&emsp;include Hello<br />
+	&emsp;def sup<br />
+		&emsp;&emsp;&quot;Whattup my people&quot;<br />
+	&emsp;end<br />
+end<br />
+<br />
+Hi.new.greetings
+						</td>
 					</tr>
 
 			
